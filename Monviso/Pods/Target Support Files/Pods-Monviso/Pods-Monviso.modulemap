@@ -1,0 +1,6 @@
+framework module Pods_Monviso {
+  umbrella header "Pods-Monviso-umbrella.h"
+
+  export *
+  module * { export * }
+}

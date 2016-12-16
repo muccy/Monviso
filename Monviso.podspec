@@ -9,11 +9,12 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
+  Data sources in protocol-oriented, type-safe, modular, swifty sauce
                    DESC
 
   s.homepage     = "https://github.com/muccy/Monviso"
-  s.license      = "MIT (example)"
-  s.author             = { "Marco Muccinelli" => "muccymac@gmail.com" }
+  s.license      = "MIT"
+  s.author       = { "Marco Muccinelli" => "muccymac@gmail.com" }
   s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/muccy/Monviso.git" }
   s.source_files  = "Source", "Source/**/*.swift"

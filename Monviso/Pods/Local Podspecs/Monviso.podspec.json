@@ -1,0 +1,21 @@
+{
+  "name": "Monviso",
+  "version": "0.0.1",
+  "summary": "Data sources in protocol-oriented, type-safe, modular, swifty sauce",
+  "description": "Data sources in protocol-oriented, type-safe, modular, swifty sauce",
+  "homepage": "https://github.com/muccy/Monviso",
+  "license": "MIT",
+  "authors": {
+    "Marco Muccinelli": "muccymac@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/muccy/Monviso.git"
+  },
+  "source_files": [
+    "Source",
+    "Source/**/*.swift"
+  ]
+}

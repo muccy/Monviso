@@ -1,0 +1,565 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		005F0FB89ADEB7DBC37D47DD /* Pods_Monviso.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DFDBA535655F570F2C5BE1B /* Pods_Monviso.framework */; };
+		06AEFD5D1E03EA730044AA76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AEFD5C1E03EA730044AA76 /* AppDelegate.swift */; };
+		06AEFD5F1E03EA730044AA76 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AEFD5E1E03EA730044AA76 /* FirstViewController.swift */; };
+		06AEFD611E03EA730044AA76 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AEFD601E03EA730044AA76 /* SecondViewController.swift */; };
+		06AEFD641E03EA730044AA76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06AEFD621E03EA730044AA76 /* Main.storyboard */; };
+		06AEFD661E03EA730044AA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06AEFD651E03EA730044AA76 /* Assets.xcassets */; };
+		06AEFD691E03EA730044AA76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06AEFD671E03EA730044AA76 /* LaunchScreen.storyboard */; };
+		06AEFD741E03EA740044AA76 /* MonvisoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AEFD731E03EA740044AA76 /* MonvisoTests.swift */; };
+		8B4ED0FA054EDD3A6692EBDE /* Pods_Monviso_MonvisoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F4A2B0B5AFD17DAD4C9861C /* Pods_Monviso_MonvisoTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		06AEFD701E03EA740044AA76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 06AEFD511E03EA730044AA76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 06AEFD581E03EA730044AA76;
+			remoteInfo = Monviso;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		06AEFD591E03EA730044AA76 /* Monviso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monviso.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		06AEFD5C1E03EA730044AA76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		06AEFD5E1E03EA730044AA76 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		06AEFD601E03EA730044AA76 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		06AEFD631E03EA730044AA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		06AEFD651E03EA730044AA76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		06AEFD681E03EA730044AA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		06AEFD6A1E03EA730044AA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06AEFD6F1E03EA740044AA76 /* MonvisoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonvisoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		06AEFD731E03EA740044AA76 /* MonvisoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonvisoTests.swift; sourceTree = "<group>"; };
+		06AEFD751E03EA740044AA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F4A2B0B5AFD17DAD4C9861C /* Pods_Monviso_MonvisoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Monviso_MonvisoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EAA65F85F63F7EC39C89CCB /* Pods-Monviso.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Monviso.release.xcconfig"; path = "Pods/Target Support Files/Pods-Monviso/Pods-Monviso.release.xcconfig"; sourceTree = "<group>"; };
+		65695DA5A4E2B750DCB29E59 /* Pods-Monviso.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Monviso.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Monviso/Pods-Monviso.debug.xcconfig"; sourceTree = "<group>"; };
+		6DFDBA535655F570F2C5BE1B /* Pods_Monviso.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Monviso.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		844456D72022CAA563C84323 /* Pods-Monviso-MonvisoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Monviso-MonvisoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Monviso-MonvisoTests/Pods-Monviso-MonvisoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		915E7F1D01C802B0075D52CB /* Pods-Monviso-MonvisoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Monviso-MonvisoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Monviso-MonvisoTests/Pods-Monviso-MonvisoTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		06AEFD561E03EA730044AA76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				005F0FB89ADEB7DBC37D47DD /* Pods_Monviso.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06AEFD6C1E03EA740044AA76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B4ED0FA054EDD3A6692EBDE /* Pods_Monviso_MonvisoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06AEFD501E03EA730044AA76 = {
+			isa = PBXGroup;
+			children = (
+				06AEFD5B1E03EA730044AA76 /* Monviso */,
+				06AEFD721E03EA740044AA76 /* MonvisoTests */,
+				06AEFD5A1E03EA730044AA76 /* Products */,
+				B8D88D55812C02852AA8CF7B /* Pods */,
+				10B561B0ED469189FAC59B8A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		06AEFD5A1E03EA730044AA76 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				06AEFD591E03EA730044AA76 /* Monviso.app */,
+				06AEFD6F1E03EA740044AA76 /* MonvisoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		06AEFD5B1E03EA730044AA76 /* Monviso */ = {
+			isa = PBXGroup;
+			children = (
+				06AEFD5C1E03EA730044AA76 /* AppDelegate.swift */,
+				06AEFD5E1E03EA730044AA76 /* FirstViewController.swift */,
+				06AEFD601E03EA730044AA76 /* SecondViewController.swift */,
+				06AEFD621E03EA730044AA76 /* Main.storyboard */,
+				06AEFD651E03EA730044AA76 /* Assets.xcassets */,
+				06AEFD671E03EA730044AA76 /* LaunchScreen.storyboard */,
+				06AEFD6A1E03EA730044AA76 /* Info.plist */,
+			);
+			path = Monviso;
+			sourceTree = "<group>";
+		};
+		06AEFD721E03EA740044AA76 /* MonvisoTests */ = {
+			isa = PBXGroup;
+			children = (
+				06AEFD731E03EA740044AA76 /* MonvisoTests.swift */,
+				06AEFD751E03EA740044AA76 /* Info.plist */,
+			);
+			path = MonvisoTests;
+			sourceTree = "<group>";
+		};
+		10B561B0ED469189FAC59B8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6DFDBA535655F570F2C5BE1B /* Pods_Monviso.framework */,
+				4F4A2B0B5AFD17DAD4C9861C /* Pods_Monviso_MonvisoTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B8D88D55812C02852AA8CF7B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				65695DA5A4E2B750DCB29E59 /* Pods-Monviso.debug.xcconfig */,
+				5EAA65F85F63F7EC39C89CCB /* Pods-Monviso.release.xcconfig */,
+				844456D72022CAA563C84323 /* Pods-Monviso-MonvisoTests.debug.xcconfig */,
+				915E7F1D01C802B0075D52CB /* Pods-Monviso-MonvisoTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		06AEFD581E03EA730044AA76 /* Monviso */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06AEFD781E03EA740044AA76 /* Build configuration list for PBXNativeTarget "Monviso" */;
+			buildPhases = (
+				4AAC2652A3C895416C82696E /* [CP] Check Pods Manifest.lock */,
+				06AEFD551E03EA730044AA76 /* Sources */,
+				06AEFD561E03EA730044AA76 /* Frameworks */,
+				06AEFD571E03EA730044AA76 /* Resources */,
+				E2DF105C05ECD887992C6FFE /* [CP] Embed Pods Frameworks */,
+				283E76640155A90B42F7D605 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Monviso;
+			productName = Monviso;
+			productReference = 06AEFD591E03EA730044AA76 /* Monviso.app */;
+			productType = "com.apple.product-type.application";
+		};
+		06AEFD6E1E03EA740044AA76 /* MonvisoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06AEFD7B1E03EA740044AA76 /* Build configuration list for PBXNativeTarget "MonvisoTests" */;
+			buildPhases = (
+				36B72104D5936E86E308D1AA /* [CP] Check Pods Manifest.lock */,
+				06AEFD6B1E03EA740044AA76 /* Sources */,
+				06AEFD6C1E03EA740044AA76 /* Frameworks */,
+				06AEFD6D1E03EA740044AA76 /* Resources */,
+				92C099C7814D298F5831FDDD /* [CP] Embed Pods Frameworks */,
+				40D7B7499C7826CD909F644F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				06AEFD711E03EA740044AA76 /* PBXTargetDependency */,
+			);
+			name = MonvisoTests;
+			productName = MonvisoTests;
+			productReference = 06AEFD6F1E03EA740044AA76 /* MonvisoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		06AEFD511E03EA730044AA76 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = MeLive;
+				TargetAttributes = {
+					06AEFD581E03EA730044AA76 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Manual;
+					};
+					06AEFD6E1E03EA740044AA76 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = APY34XPL4P;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 06AEFD581E03EA730044AA76;
+					};
+				};
+			};
+			buildConfigurationList = 06AEFD541E03EA730044AA76 /* Build configuration list for PBXProject "Monviso" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 06AEFD501E03EA730044AA76;
+			productRefGroup = 06AEFD5A1E03EA730044AA76 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				06AEFD581E03EA730044AA76 /* Monviso */,
+				06AEFD6E1E03EA740044AA76 /* MonvisoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		06AEFD571E03EA730044AA76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06AEFD691E03EA730044AA76 /* LaunchScreen.storyboard in Resources */,
+				06AEFD661E03EA730044AA76 /* Assets.xcassets in Resources */,
+				06AEFD641E03EA730044AA76 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06AEFD6D1E03EA740044AA76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		283E76640155A90B42F7D605 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Monviso/Pods-Monviso-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		36B72104D5936E86E308D1AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		40D7B7499C7826CD909F644F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Monviso-MonvisoTests/Pods-Monviso-MonvisoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4AAC2652A3C895416C82696E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		92C099C7814D298F5831FDDD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Monviso-MonvisoTests/Pods-Monviso-MonvisoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2DF105C05ECD887992C6FFE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Monviso/Pods-Monviso-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		06AEFD551E03EA730044AA76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06AEFD611E03EA730044AA76 /* SecondViewController.swift in Sources */,
+				06AEFD5D1E03EA730044AA76 /* AppDelegate.swift in Sources */,
+				06AEFD5F1E03EA730044AA76 /* FirstViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06AEFD6B1E03EA740044AA76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06AEFD741E03EA740044AA76 /* MonvisoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		06AEFD711E03EA740044AA76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 06AEFD581E03EA730044AA76 /* Monviso */;
+			targetProxy = 06AEFD701E03EA740044AA76 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		06AEFD621E03EA730044AA76 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06AEFD631E03EA730044AA76 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		06AEFD671E03EA730044AA76 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06AEFD681E03EA730044AA76 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		06AEFD761E03EA740044AA76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		06AEFD771E03EA740044AA76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		06AEFD791E03EA740044AA76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65695DA5A4E2B750DCB29E59 /* Pods-Monviso.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Monviso/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = it.melive.mukit.Monviso;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		06AEFD7A1E03EA740044AA76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EAA65F85F63F7EC39C89CCB /* Pods-Monviso.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Monviso/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = it.melive.mukit.Monviso;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		06AEFD7C1E03EA740044AA76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 844456D72022CAA563C84323 /* Pods-Monviso-MonvisoTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = APY34XPL4P;
+				INFOPLIST_FILE = MonvisoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = it.melive.mukit.MonvisoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Monviso.app/Monviso";
+			};
+			name = Debug;
+		};
+		06AEFD7D1E03EA740044AA76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 915E7F1D01C802B0075D52CB /* Pods-Monviso-MonvisoTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = APY34XPL4P;
+				INFOPLIST_FILE = MonvisoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = it.melive.mukit.MonvisoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Monviso.app/Monviso";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		06AEFD541E03EA730044AA76 /* Build configuration list for PBXProject "Monviso" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06AEFD761E03EA740044AA76 /* Debug */,
+				06AEFD771E03EA740044AA76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06AEFD781E03EA740044AA76 /* Build configuration list for PBXNativeTarget "Monviso" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06AEFD791E03EA740044AA76 /* Debug */,
+				06AEFD7A1E03EA740044AA76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06AEFD7B1E03EA740044AA76 /* Build configuration list for PBXNativeTarget "MonvisoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06AEFD7C1E03EA740044AA76 /* Debug */,
+				06AEFD7D1E03EA740044AA76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 06AEFD511E03EA730044AA76 /* Project object */;
+}

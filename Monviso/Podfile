@@ -1,0 +1,5 @@
+target 'Monviso' do
+  use_frameworks!
+  pod 'Monviso', :path => '..'
+  target 'MonvisoTests'
+end
