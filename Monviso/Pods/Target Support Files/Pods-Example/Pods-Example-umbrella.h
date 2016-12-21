@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_MonvisoVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_MonvisoVersionString[];
+FOUNDATION_EXPORT double Pods_ExampleVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_ExampleVersionString[];
 

@@ -12,7 +12,8 @@
     "ios": "8.0"
   },
   "source": {
-    "git": "https://github.com/muccy/Monviso.git"
+    "git": "https://github.com/muccy/Monviso.git",
+    "tag": "0.0.1"
   },
   "source_files": [
     "Source",

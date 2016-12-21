@@ -1,4 +1,4 @@
-target 'Monviso' do
+target 'Example' do
   use_frameworks!
   pod 'Monviso', :path => '..'
   target 'MonvisoTests'

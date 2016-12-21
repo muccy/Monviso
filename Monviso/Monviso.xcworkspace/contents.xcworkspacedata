@@ -10,6 +10,28 @@
       <FileRef
          location = "group:DataSource.swift">
       </FileRef>
+      <FileRef
+         location = "group:Identifiable.swift">
+      </FileRef>
+      <FileRef
+         location = "group:AccessError.swift">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/muccy/Developer/Cocoa/Git/MUKit/GitHub/Monviso/Source/ItemUIProviding.swift">
+      </FileRef>
+      <Group
+         location = "group:Sectioned"
+         name = "Sectioned">
+         <FileRef
+            location = "group:Section.swift">
+         </FileRef>
+         <FileRef
+            location = "group:TableViewDataSource.swift">
+         </FileRef>
+         <FileRef
+            location = "group:CollectionViewDataSource.swift">
+         </FileRef>
+      </Group>
    </Group>
    <FileRef
       location = "group:Monviso.xcodeproj">
