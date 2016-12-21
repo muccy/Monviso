@@ -4,11 +4,13 @@ final public class TableViewDataSource<Item, CellFactory: ItemUIProviding>: NSOb
     where CellFactory.Item == Item, CellFactory.Location == IndexPath, CellFactory.Client == UITableView, CellFactory.Product == UITableViewCell
 {
     public typealias Content = [Section<Item>]
-    public typealias MoveHandler = UserInteractionHandler<Content, MoveAttempt<IndexPath>, MoveCommit<IndexPath>>
+    public typealias MoveHandler = UserInteractionHandler<MoveAttempt<IndexPath, Content>, MoveCommit<IndexPath, Content>>
+    public typealias EditHandler = UserInteractionHandler<EditAttempt<IndexPath, Content>, EditCommit<IndexPath, UITableViewCellEditingStyle, Content>>
 
     public var content: Content = []
     public let cellFactory: CellFactory
-    public var moveHandler = MoveHandler({ _ in return false}, maker: MoveHandler.standardMaker())
+    public var moveHandler = MoveHandler({ _ in return false }, maker: MoveHandler.standardMaker())
+    public var editHandler = EditHandler({ _ in return false}) { commit in return commit.content }
     
     public required init(cellFactory: CellFactory) {
         self.cellFactory = cellFactory
@@ -49,34 +51,47 @@ final public class TableViewDataSource<Item, CellFactory: ItemUIProviding>: NSOb
     
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
     {
-        return false
+        let editAttempt = EditAttempt(at: indexPath, with: content)
+        if editHandler.allows(userInteraction: editAttempt) {
+            return true
+        }
+        
+        // Move needs edit mode
+        let moveAttempt = MoveAttempt(from: indexPath, with: content)
+        return moveHandler.allows(userInteraction: moveAttempt)
     }
     
     public func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
     {
-        let attempt = MoveAttempt(from: indexPath)
+        let attempt = MoveAttempt(from: indexPath, with: content)
         return moveHandler.allows(userInteraction: attempt)
     }
     
     public func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return nil
+        return nil // TODO
     }
     
     public func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int
     {
-        return 0
+        return 0 // TODO
     }
 
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
     {
-        
+        do {
+            let commit = EditCommit(at: indexPath, style: editingStyle, with: content)
+            content = try editHandler.content(applyingUserInteraction: commit)
+        }
+        catch let error {
+            fatalError("Data source can not edit item at \(indexPath) with style \(editingStyle): \(error)")
+        }
     }
     
     public func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
     {
         do {
-            let commit = MoveCommit(from: sourceIndexPath, to: destinationIndexPath)
-            content = try moveHandler.commit(userInteraction: commit, with: content)
+            let commit = MoveCommit(from: sourceIndexPath, to: destinationIndexPath, with: content)
+            content = try moveHandler.content(applyingUserInteraction: commit)
         }
         catch let error {
             fatalError("Data source can not move item from \(sourceIndexPath) to \(destinationIndexPath): \(error)")

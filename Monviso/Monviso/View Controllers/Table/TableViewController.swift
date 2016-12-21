@@ -17,7 +17,7 @@ class TableViewController: UITableViewController {
     private typealias CellFactory = TableViewCellFactory<Entry, UITableViewCell>
     private typealias DataSource = TableViewDataSource<Entry, CellFactory>
     
-    private var entries = [Entry(title: "Prova")]
+    private var entries = [Entry(title: "1"), Entry(title: "2"), Entry(title: "3")]
     
     private let dataSource: DataSource = {
         let cellFactory = CellFactory() { item, indexPath, tableView in
@@ -26,7 +26,9 @@ class TableViewController: UITableViewController {
             return cell
         }
         
-        return DataSource(cellFactory: cellFactory)
+        var dataSource = DataSource(cellFactory: cellFactory)
+        
+        return dataSource
     }()
 
     override func viewDidLoad() {
@@ -35,7 +37,6 @@ class TableViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.dataSource = dataSource
         
-        dataSource.content = [ Section<Entry>(items: entries) ]
+        dataSource.content = [ Section(items: entries) ]
     }
-
 }
