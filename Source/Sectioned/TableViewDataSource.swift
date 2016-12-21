@@ -3,8 +3,12 @@ import UIKit
 final public class TableViewDataSource<Item, CellFactory: ItemUIProviding>: NSObject, DataSource, UITableViewDataSource
     where CellFactory.Item == Item, CellFactory.Location == IndexPath, CellFactory.Client == UITableView, CellFactory.Product == UITableViewCell
 {
-    public var content: [Section<Item>] = []
+    public typealias Content = [Section<Item>]
+    public typealias MoveHandler = UserInteractionHandler<Content, MoveAttempt<IndexPath>, MoveCommit<IndexPath>>
+
+    public var content: Content = []
     public let cellFactory: CellFactory
+    public var moveHandler = MoveHandler({ _ in return false}, maker: MoveHandler.standardMaker())
     
     public required init(cellFactory: CellFactory) {
         self.cellFactory = cellFactory
@@ -14,7 +18,7 @@ final public class TableViewDataSource<Item, CellFactory: ItemUIProviding>: NSOb
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        let count = try? self.section(at: section).items.count
+        let count = try? content.section(at: section).items.count
         return count ?? 0
     }
     
@@ -30,12 +34,12 @@ final public class TableViewDataSource<Item, CellFactory: ItemUIProviding>: NSOb
     }
     
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let header = try? self.section(at: section).header
+        let header = try? content.section(at: section).header
         return header as? String
     }
     
     public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        let footer = try? self.section(at: section).footer
+        let footer = try? content.section(at: section).footer
         return footer as? String
     }
     
@@ -45,21 +49,22 @@ final public class TableViewDataSource<Item, CellFactory: ItemUIProviding>: NSOb
     
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
     {
-        
+        return false
     }
     
     public func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
     {
-        
+        let attempt = MoveAttempt(from: indexPath)
+        return moveHandler.allows(userInteraction: attempt)
     }
     
     public func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        
+        return nil
     }
     
     public func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int
     {
-        
+        return 0
     }
 
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
@@ -70,22 +75,8 @@ final public class TableViewDataSource<Item, CellFactory: ItemUIProviding>: NSOb
     public func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
     {
         do {
-            var sourceSection = try section(at: sourceIndexPath.section)
-            let item = try sourceSection.item(at: sourceIndexPath.row)
-            sourceSection.items.remove(at: sourceIndexPath.row)
-            
-            var destinationSection = try section(at: destinationIndexPath.section)
-            destinationSection.items.insert(item, at: destinationIndexPath.row)
-            
-            var sections = content
-            
-            sections.remove(at: sourceIndexPath.section)
-            sections.insert(sourceSection, at: sourceIndexPath.section)
-            
-            sections.remove(at: destinationIndexPath.section)
-            sections.insert(destinationSection, at: destinationIndexPath.section)
-            
-            content = sections
+            let commit = MoveCommit(from: sourceIndexPath, to: destinationIndexPath)
+            content = try moveHandler.commit(userInteraction: commit, with: content)
         }
         catch let error {
             fatalError("Data source can not move item from \(sourceIndexPath) to \(destinationIndexPath): \(error)")

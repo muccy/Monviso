@@ -14,6 +14,8 @@
 		06AEFD661E03EA730044AA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06AEFD651E03EA730044AA76 /* Assets.xcassets */; };
 		06AEFD691E03EA730044AA76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06AEFD671E03EA730044AA76 /* LaunchScreen.storyboard */; };
 		06AEFD741E03EA740044AA76 /* MonvisoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AEFD731E03EA740044AA76 /* MonvisoTests.swift */; };
+		1C4D97AA9CA3CD6CBF9E08A4 /* Pods_Example_MonvisoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D3AA08DDDF9B722B556068 /* Pods_Example_MonvisoTests.framework */; };
+		42E16EE2FE9814B53BA1E1EE /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D4DCA5129D126E01C843EC5 /* Pods_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,12 +40,14 @@
 		06AEFD6F1E03EA740044AA76 /* MonvisoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonvisoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06AEFD731E03EA740044AA76 /* MonvisoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonvisoTests.swift; sourceTree = "<group>"; };
 		06AEFD751E03EA740044AA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D4DCA5129D126E01C843EC5 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F050C27DB2B1F65FCB8147 /* Pods-Example-MonvisoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example-MonvisoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example-MonvisoTests/Pods-Example-MonvisoTests.release.xcconfig"; sourceTree = "<group>"; };
 		53F9786673C72E3D30F54894 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5EAA65F85F63F7EC39C89CCB /* Pods-Monviso.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Monviso.release.xcconfig"; path = "Pods/Target Support Files/Pods-Monviso/Pods-Monviso.release.xcconfig"; sourceTree = "<group>"; };
 		65695DA5A4E2B750DCB29E59 /* Pods-Monviso.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Monviso.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Monviso/Pods-Monviso.debug.xcconfig"; sourceTree = "<group>"; };
 		844456D72022CAA563C84323 /* Pods-Monviso-MonvisoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Monviso-MonvisoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Monviso-MonvisoTests/Pods-Monviso-MonvisoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		915E7F1D01C802B0075D52CB /* Pods-Monviso-MonvisoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Monviso-MonvisoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Monviso-MonvisoTests/Pods-Monviso-MonvisoTests.release.xcconfig"; sourceTree = "<group>"; };
+		99D3AA08DDDF9B722B556068 /* Pods_Example_MonvisoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example_MonvisoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB41930E861FA2A45458B8D3 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		E9476649E2B710A4F36DD19F /* Pods-Example-MonvisoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example-MonvisoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example-MonvisoTests/Pods-Example-MonvisoTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42E16EE2FE9814B53BA1E1EE /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C4D97AA9CA3CD6CBF9E08A4 /* Pods_Example_MonvisoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +142,8 @@
 		10B561B0ED469189FAC59B8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D4DCA5129D126E01C843EC5 /* Pods_Example.framework */,
+				99D3AA08DDDF9B722B556068 /* Pods_Example_MonvisoTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

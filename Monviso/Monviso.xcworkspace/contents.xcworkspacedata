@@ -31,6 +31,9 @@
          <FileRef
             location = "group:CollectionViewDataSource.swift">
          </FileRef>
+         <FileRef
+            location = "group:UserInteraction.swift">
+         </FileRef>
       </Group>
    </Group>
    <FileRef
