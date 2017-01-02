@@ -6,11 +6,14 @@ final public class TableViewDataSource<Item, CellFactory: ItemUIProviding>: NSOb
     public typealias Content = [Section<Item>]
     public typealias MoveHandler = UserInteractionHandler<MoveAttempt<IndexPath, Content>, MoveCommit<IndexPath, Content>>
     public typealias EditHandler = UserInteractionHandler<EditAttempt<IndexPath, Content>, EditCommit<IndexPath, UITableViewCellEditingStyle, Content>>
+    public typealias SectionTitleMaker = (Section<Item>, Int) -> String?
 
     public var content: Content = []
     public let cellFactory: CellFactory
     public var moveHandler = MoveHandler({ _ in return false }, maker: MoveHandler.standardMaker())
     public var editHandler = EditHandler({ _ in return false}) { commit in return commit.content }
+    public var sectionHeaderTitleMaker: SectionTitleMaker = { section, _ in return section.header as? String }
+    public var sectionFooterTitleMaker: SectionTitleMaker = { section, _ in section.footer as? String }
     
     public required init(cellFactory: CellFactory) {
         self.cellFactory = cellFactory
@@ -35,14 +38,24 @@ final public class TableViewDataSource<Item, CellFactory: ItemUIProviding>: NSOb
         }
     }
     
-    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let header = try? content.section(at: section).header
-        return header as? String
+    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    {
+        do {
+            return try sectionHeaderTitleMaker(content.section(at: section), section)
+        }
+        catch {
+            return nil
+        }
     }
     
-    public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        let footer = try? content.section(at: section).footer
-        return footer as? String
+    public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?
+    {
+        do {
+            return try sectionFooterTitleMaker(content.section(at: section), section)
+        }
+        catch {
+            return nil
+        }
     }
     
     public func numberOfSections(in tableView: UITableView) -> Int {
