@@ -18,4 +18,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/muccy/Monviso.git", :tag => s.version }
   s.source_files  = "Source", "Source/**/*.swift"
+  
+  s.dependency  "Ferrara", "~> 1.0"
 end
