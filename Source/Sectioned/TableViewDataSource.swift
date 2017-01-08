@@ -1,22 +1,50 @@
 import UIKit
 
-final public class TableViewDataSource<Item, CellFactory: ItemUIProviding>: NSObject, DataSource, UITableViewDataSource
-    where CellFactory.Item == Item, CellFactory.Location == IndexPath, CellFactory.Client == UITableView, CellFactory.Product == UITableViewCell
+public struct TableViewSection<Item, Header, Footer>: MutableSection {
+    public var items: [Item]
+    public var header: Header?
+    public var footer: Footer?
+    
+    public init(items: [Item] = [], header: Header? = nil, footer: Footer? = nil)
+    {
+        self.items = items
+        self.header = header
+        self.footer = footer
+    }
+}
+
+public struct TableViewContent<Item, Header, Footer>: MutableSectionContainer {
+    public typealias Element = TableViewSection<Item, Header, Footer>
+    public var sections = [Element]()
+}
+
+final public class TableViewDataSource: NSObject, DataSource, UITableViewDataSource
 {
-    public typealias Content = [Section<Item>]
+    public typealias Content = TableViewContent<Any, Any, Any>
+    public typealias Section = Content.Element
+    public typealias Item = Content.SubElement
+    
+    public typealias CellFactory = ItemUIFactory<Item, IndexPath, UITableView, UITableViewCell>
     public typealias MoveHandler = UserInteractionHandler<MoveAttempt<IndexPath, Content>, MoveCommit<IndexPath, Content>>
     public typealias EditHandler = UserInteractionHandler<EditAttempt<IndexPath, Content>, EditCommit<IndexPath, UITableViewCellEditingStyle, Content>>
-    public typealias SectionTitleMaker = (Section<Item>, Int) -> String?
+    public typealias SectionTitleMaker = (Section, Int) -> String?
 
-    public var content: Content = []
+    public var content = Content()
     public let cellFactory: CellFactory
-    public var moveHandler = MoveHandler({ _ in return false }, maker: MoveHandler.standardMaker())
-    public var editHandler = EditHandler({ _ in return false}) { commit in return commit.content }
+    
+    public var moveHandler = MoveHandler({ _ in return false }) { _ in }
+    public var editHandler = EditHandler({ _ in return false}) { _ in }
+    
     public var sectionHeaderTitleMaker: SectionTitleMaker = { section, _ in return section.header as? String }
     public var sectionFooterTitleMaker: SectionTitleMaker = { section, _ in section.footer as? String }
     
     public required init(cellFactory: CellFactory) {
         self.cellFactory = cellFactory
+        
+        super.init()
+        self.moveHandler.maker = { [unowned self] commit in
+            try self.content.move(itemAt: commit.from, to: commit.to)
+        }
     }
     
     // MARK: UITableViewDataSource
@@ -30,7 +58,7 @@ final public class TableViewDataSource<Item, CellFactory: ItemUIProviding>: NSOb
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         do {
-            let item = try self.item(at: indexPath)
+            let item = try content.item(at: indexPath)
             return try cellFactory.UIElement(for: item, at: indexPath, for: tableView)
         }
         catch let error {
@@ -59,7 +87,7 @@ final public class TableViewDataSource<Item, CellFactory: ItemUIProviding>: NSOb
     }
     
     public func numberOfSections(in tableView: UITableView) -> Int {
-        return content.count
+        return content.sections.count
     }
     
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
@@ -93,7 +121,7 @@ final public class TableViewDataSource<Item, CellFactory: ItemUIProviding>: NSOb
     {
         do {
             let commit = EditCommit(at: indexPath, style: editingStyle, with: content)
-            content = try editHandler.content(applyingUserInteraction: commit)
+            try editHandler.apply(userInteraction: commit)
         }
         catch let error {
             fatalError("Data source can not edit item at \(indexPath) with style \(editingStyle): \(error)")
@@ -104,7 +132,7 @@ final public class TableViewDataSource<Item, CellFactory: ItemUIProviding>: NSOb
     {
         do {
             let commit = MoveCommit(from: sourceIndexPath, to: destinationIndexPath, with: content)
-            content = try moveHandler.content(applyingUserInteraction: commit)
+            try moveHandler.apply(userInteraction: commit)
         }
         catch let error {
             fatalError("Data source can not move item from \(sourceIndexPath) to \(destinationIndexPath): \(error)")

@@ -1,100 +1,102 @@
 import Foundation
+import Ferrara
 
-/// The representation of a section of content in a sectioned view
-public protocol SectionProtocol: Identifiable {
-    /// How the items are stored inside the section
+public protocol Section: IndexSafelyAccessible {
     associatedtype Items: Collection
-    
-    /// Type of header
-    associatedtype Header
-    
-    /// The of footer
-    associatedtype Footer
-    
-    /// Items contained inside section
     var items: Items { get }
-    
-    /// Header of section
-    var header: Header? { get }
-    
-    /// Footer of section
-    var footer: Footer? { get }
 }
 
-/// Mutable version of SectionProtocol
-public protocol MutableSectionProtocol: SectionProtocol {
-    var items: Items { get set}
-    var header: Header? { get set }
-    var footer: Footer? { get set }
+public protocol MutableSection: Section {
+    var items: Items { get set }
 }
 
-// MARK: - A section of items accessible via an Int index (e.g.: items is an array)
-extension SectionProtocol where Items.Index == Int, Items.IndexDistance == Int {
-    /// Access to item
-    ///
-    /// - Parameter index: Item index
-    /// - Returns: The item at given index
-    /// - Throws: AccessError.outOfBounds if index is out of bounds
-    func item(at index: Items.Index) throws -> Items.Iterator.Element {
-        if index >= 0 && index < self.items.count {
-            return self.items[index]
+public extension Section {
+    public func item(at index: Index) throws -> Element {
+        return try element(at: index)
+    }
+}
+
+public extension Section where
+    Items.Index == Int, Items.IndexDistance == Int
+{
+    func element(at index: Items.Index) throws -> Items.Iterator.Element
+    {
+        if index >= 0 && index < items.count {
+            return items[index]
         }
         else {
-            throw AccessError.outOfBounds(index: index, validRange: 0..<self.items.count)
+            throw AccessError.outOfBounds(index: index, validRange: 0..<items.count)
         }
+
     }
 }
 
-// MARK: - Collection containing sections
-extension Collection where Iterator.Element: SectionProtocol, Index == Int, IndexDistance == Int
+// MARK: -
+
+public protocol SectionContainer: IndexSafelyAccessible, IndexPathSafelyAccessible
 {
-    /// Access a section
-    ///
-    /// - Parameter index: Section index
-    /// - Returns: Section at given index
-    /// - Throws: AccessError.outOfBounds if index is out of bounds
-    func section(at index: Index) throws -> Iterator.Element {
-        if index >= 0 && index < count {
-            return self[index]
+    associatedtype Sections: Collection
+    var sections: Sections { get }
+}
+
+public protocol MutableSectionContainer: SectionContainer {
+    var sections: Sections { get set }
+}
+
+public extension SectionContainer where Element: Section {
+    public func section(at index: Index) throws -> Element {
+        return try element(at: index)
+    }
+    
+    public func item(at indexPath: IndexPath) throws -> SubElement {
+        return try element(at: indexPath)
+    }
+}
+
+public extension SectionContainer where
+    Sections.Index == IndexPath.Index, Sections.IndexDistance == IndexPath.Index
+{
+    func element(at index: Sections.Index) throws -> Sections.Iterator.Element
+    {
+        if index >= 0 && index < sections.count {
+            return sections[index]
         }
         else {
-            throw AccessError.outOfBounds(index: index, validRange: 0..<count)
+            throw AccessError.outOfBounds(index: index, validRange: 0..<sections.count)
         }
     }
 }
 
-// MARK: - Data source containing a collection of sections
-extension DataSource where
-    Content: Collection,
-    Content.Index == Int,
-    Content.IndexDistance == Int,
-    Content.Iterator.Element: SectionProtocol,
-    Content.Iterator.Element.Items: Collection,
-    Content.Iterator.Element.Items.Index == Int,
-    Content.Iterator.Element.Items.IndexDistance == Int
+public extension SectionContainer where
+    Sections.Index == IndexPath.Index, Sections.IndexDistance == IndexPath.Index,
+    Sections.Iterator.Element: IndexSafelyAccessible, Sections.Iterator.Element.Index == IndexPath.Index
 {
-    typealias Section = Content.Iterator.Element
-    typealias Item = Section.Items.Iterator.Element
-    
-    /// Access an item
-    ///
-    /// - Parameter indexPath: Item index path
-    /// - Returns: Item at given index path
-    /// - Throws: AccessError.outOfBounds if index path is out of bounds
-    func item(at indexPath: IndexPath) throws -> Item {
-        let section = try content.section(at: indexPath.section)
-        return try section.item(at: indexPath.item)
+    func element(at indexPath: IndexPath) throws -> Sections.Iterator.Element.Element
+    {
+        let firstLevelElement = try self.element(at: indexPath.section)
+        return try firstLevelElement.element(at: indexPath.item)
     }
 }
 
-/// Concrete section struct
-public struct Section<Item>: MutableSectionProtocol {
-    public var identifier: AnyHashable?
-    public var items: [Item]
-    public var header: Any?
-    public var footer: Any?
-    
-    public init(items: [Item]) {
-        self.items = items
+public extension MutableSectionContainer where
+    Sections: RangeReplaceableCollection, Sections.Iterator.Element == Element, Element: MutableSection,
+    Element.Items: RangeReplaceableCollection, Sections.Index == Index,
+    Index == IndexPath.Index, Element.Items.Index == Index,
+    SubElement == Element.Items.Iterator.Element
+{
+    public mutating func move(itemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) throws
+    {
+        var sourceSection = try section(at: sourceIndexPath.section)
+        let item = try self.item(at: sourceIndexPath)
+        sourceSection.items.remove(at: sourceIndexPath.item)
+        
+        var destinationSection = try section(at: destinationIndexPath.section)
+        destinationSection.items.insert(item, at: destinationIndexPath.item)
+        
+        sections.remove(at: sourceIndexPath.section)
+        sections.insert(sourceSection, at: sourceIndexPath.section)
+        
+        sections.remove(at: destinationIndexPath.section)
+        sections.insert(destinationSection, at: destinationIndexPath.section)
     }
 }

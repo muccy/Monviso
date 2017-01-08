@@ -13,22 +13,21 @@ class TableViewController: UITableViewController {
     private struct Entry {
         let title: String
     }
-    
-    private typealias CellFactory = TableViewCellFactory<Entry, UITableViewCell>
-    private typealias DataSource = TableViewDataSource<Entry, CellFactory>
-    
+ 
     private var entries = [Entry(title: "1"), Entry(title: "2"), Entry(title: "3")]
     
-    private let dataSource: DataSource = {
-        let cellFactory = CellFactory() { item, indexPath, tableView in
+    private let dataSource: TableViewDataSource = {
+        let cellFactory = TableViewDataSource.CellFactory() { item, indexPath, tableView in
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            cell.textLabel!.text = item.title
+            
+            if let entry = item as? Entry {
+                cell.textLabel!.text = entry.title
+            }
+            
             return cell
         }
         
-        var dataSource = DataSource(cellFactory: cellFactory)
-        
-        return dataSource
+        return TableViewDataSource(cellFactory: cellFactory)
     }()
 
     override func viewDidLoad() {
@@ -37,6 +36,6 @@ class TableViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.dataSource = dataSource
         
-        dataSource.content = [ Section(items: entries) ]
+        dataSource.content.sections = [ TableViewDataSource.Section(items: entries) ]
     }
 }

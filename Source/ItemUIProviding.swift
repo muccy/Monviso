@@ -29,7 +29,7 @@ public struct ItemUIFactory<Item, Location, Client, Product>: ItemUIProviding {
     public typealias Creator = (Item, Location, Client) throws -> Product
     
     /// A closure which produces UI
-    public let creator: Creator
+    public var creator: Creator
     
     public init(creator: @escaping Creator) {
         self.creator = creator
@@ -40,5 +40,3 @@ public struct ItemUIFactory<Item, Location, Client, Product>: ItemUIProviding {
         return try creator(item, location, client)
     }
 }
-
-public typealias TableViewCellFactory<Item, Cell: UITableViewCell> = ItemUIFactory<Item, IndexPath, UITableView, Cell>

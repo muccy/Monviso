@@ -1,23 +1,17 @@
 import UIKit
 
-public protocol UserInteractionAttempt {
+/// A step of user interaction on content
+public protocol UserInteractionStep {
     associatedtype Content
     
-    /// Content as user interaction is attempted
-    var content: Content { get }
-}
-
-public protocol UserInteractionCommit {
-    associatedtype Content
-    
-    /// Content to affect with user interaction
+    /// Content manipulated by user interaction
     var content: Content { get }
 }
 
 /// Ability to handle user interaction
 public protocol UserInteractionHandling {
-    associatedtype Attempt: UserInteractionAttempt
-    associatedtype Commit: UserInteractionCommit
+    associatedtype Attempt: UserInteractionStep
+    associatedtype Commit: UserInteractionStep
     
     /// Check if attempt could be made
     ///
@@ -30,32 +24,12 @@ public protocol UserInteractionHandling {
     ///
     /// - Parameters:
     ///   - commit: The commit to make
-    /// - Returns: New content
     /// - Throws: If there is an error during commit
-    func content(applyingUserInteraction commit: Commit) throws -> Commit.Content
+    func apply(userInteraction commit: Commit) throws
 }
 
-/// Move user interaction attempt
-public protocol MoveAttemptProtocol: UserInteractionAttempt {
-    associatedtype Location
-    
-    /// Where move starts
-    var from: Location { get }
-}
-
-/// Move user interaction commit
-public protocol MoveCommitProtocol: UserInteractionCommit {
-    associatedtype Location
-    
-    /// Where move starts
-    var from: Location { get }
-    
-    /// Where move ends
-    var to: Location { get }
-}
-
-/// Concrete move attempt
-public struct MoveAttempt<Location, Content>: MoveAttemptProtocol {
+/// Move attempt
+public struct MoveAttempt<Location, Content>: UserInteractionStep {
     public let from: Location
     public let content: Content
     
@@ -65,8 +39,8 @@ public struct MoveAttempt<Location, Content>: MoveAttemptProtocol {
     }
 }
 
-/// Concrete move commit
-public struct MoveCommit<Location, Content>: MoveCommitProtocol {
+/// Move commit
+public struct MoveCommit<Location, Content>: UserInteractionStep {
     public let from: Location
     public let to: Location
     public let content: Content
@@ -78,9 +52,8 @@ public struct MoveCommit<Location, Content>: MoveCommitProtocol {
     }
 }
 
-
-/// Concrete edit user interaction attempt
-public struct EditAttempt<Location, Content>: UserInteractionAttempt {
+/// Edit user interaction attempt
+public struct EditAttempt<Location, Content>: UserInteractionStep {
     /// Where edit is requested
     public let at: Location
     public let content: Content
@@ -91,8 +64,8 @@ public struct EditAttempt<Location, Content>: UserInteractionAttempt {
     }
 }
 
-/// Concrete edit user interaction commit
-public struct EditCommit<Location, Style, Content>: UserInteractionCommit {
+/// Edit user interaction commit
+public struct EditCommit<Location, Style, Content>: UserInteractionStep {
     /// Where edit is committed
     public let at: Location
     /// Style of commit
@@ -107,13 +80,13 @@ public struct EditCommit<Location, Style, Content>: UserInteractionCommit {
 }
 
 /// Concrete user interaction handler
-public struct UserInteractionHandler<Attempt: UserInteractionAttempt, Commit: UserInteractionCommit>: UserInteractionHandling
+public struct UserInteractionHandler<Attempt: UserInteractionStep, Commit: UserInteractionStep>: UserInteractionHandling
 {
     /// Attempt closure type
     public typealias AttemptTest = (Attempt) -> Bool
     
-    /// Commit closure type
-    public typealias Maker = (Commit) throws -> Commit.Content
+    /// Commit maker closure type
+    public typealias Maker = (Commit) throws -> Void
     
     /// Check if attempt could be made
     public var attemptTest: AttemptTest
@@ -130,41 +103,7 @@ public struct UserInteractionHandler<Attempt: UserInteractionAttempt, Commit: Us
         return attemptTest(attempt)
     }
     
-    public func content(applyingUserInteraction commit: Commit) throws -> Commit.Content
-    {
-        return try maker(commit)
+    public func apply(userInteraction commit: Commit) throws {
+        try maker(commit)
     }
-}
-
-
-// MARK: - User interaction handler like UserInteractionHandler<Section, _, MoveCommit>
-extension UserInteractionHandler where
-    Commit.Content: RangeReplaceableCollection, Commit.Content.Iterator.Element: MutableSectionProtocol, Commit.Content.Index == Int, Commit.Content.IndexDistance == Int,
-    Commit.Content.Iterator.Element.Items: RangeReplaceableCollection, Commit.Content.Iterator.Element.Items.Index == Int, Commit.Content.Iterator.Element.Items.IndexDistance == Int,
-    Commit: MoveCommitProtocol, Commit.Location == IndexPath
-{
-    /// Default maker factory
-    ///
-    /// - Returns: Default maker
-    public static func standardMaker() -> Maker
-    {
-        return { commit in
-            var sourceSection = try commit.content.section(at: commit.from.section)
-            let item = try sourceSection.item(at: commit.from.row)
-            sourceSection.items.remove(at: commit.from.item)
-            
-            var destinationSection = try commit.content.section(at: commit.to.section)
-            destinationSection.items.insert(item, at: commit.to.item)
-            
-            var sections = commit.content
-            sections.remove(at: commit.from.section)
-            sections.insert(sourceSection, at: commit.from.section)
-            
-            sections.remove(at: commit.to.section)
-            sections.insert(destinationSection, at: commit.to.section)
-            
-            return sections
-        }
-    }
-
 }

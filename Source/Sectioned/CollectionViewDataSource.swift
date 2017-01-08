@@ -1,5 +1,11 @@
 import UIKit
 
+public struct CollectionViewSection: Section {
+    public var items: [Any]
+    public var supplementary: Any?
+}
+
+
 //final public class CollectionViewDataSource<Item, Cell: UICollectionViewCell>: NSObject, SectionedViewDataSource, UICollectionViewDataSource
 //{
 //    public var content: [Section<Item>] = []
