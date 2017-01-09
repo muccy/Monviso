@@ -153,7 +153,7 @@ public extension MutableSectionContainer where
     ///   - sourceIndexPath: Source item index path
     ///   - destinationIndexPath: Destination index path
     /// - Throws: AccessError.outOfBounds when any index path is out of bounds
-    public mutating func move(itemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) throws
+    public mutating func moveItem(from sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) throws
     {
         var sourceSection = try section(at: sourceIndexPath.section)
         let item = try self.item(at: sourceIndexPath)

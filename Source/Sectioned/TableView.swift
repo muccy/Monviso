@@ -80,7 +80,7 @@ final public class TableViewDataSource: NSObject, DataSource, UITableViewDataSou
     public required override init() {
         super.init()
         self.moveHandler.maker = { [unowned self] commit in
-            try self.content.move(itemAt: commit.from, to: commit.to)
+            try self.content.moveItem(from: commit.from, to: commit.to)
         }
     }
     
