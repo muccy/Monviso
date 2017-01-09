@@ -35,6 +35,9 @@
             location = "group:UserInteraction.swift">
          </FileRef>
       </Group>
+      <FileRef
+         location = "group:PageViewController.swift">
+      </FileRef>
    </Group>
    <FileRef
       location = "group:Example/Example.xcodeproj">
