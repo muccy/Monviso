@@ -27,6 +27,9 @@ public extension IndexSafelyAccessible where
     }
 }
 
+// Array naturally conforms to IndexSafelyAccessible
+extension Array: IndexSafelyAccessible {}
+
 /// Access an element safely with its index path
 public protocol IndexPathSafelyAccessible {
     associatedtype SubElement

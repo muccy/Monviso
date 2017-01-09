@@ -7,27 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0166B08ECA38D3B5B34FBED7A378CFFD /* Monviso-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B5BCA91C26BF9ADE4B576E67EFE2A924 /* Monviso-dummy.m */; };
-		299FAEFB0C724BADECD794AB5FCA9FFD /* ItemUIProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C5A64641AD40F75656710C546DD0F /* ItemUIProviding.swift */; };
+		02558180709126E018CA7C256F941E7C /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DBF3EA1053B6370DCBF10BADCE152 /* DataSource.swift */; };
+		2B929C0841645C9E2C935A719C2BE437 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674CCDB8557FDD4E7ABB5F255804FDD8 /* Section.swift */; };
+		3158498A35FF8D1DA67F6464258B3595 /* Monviso-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9A19C58003C9783C418E9382D9428 /* Monviso-dummy.m */; };
 		449BF4FEC8EFBF470676D469BC87E35F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5329D2F033FC45D668DB0CB562D2A90 /* Foundation.framework */; };
+		49DF7F7D9A0C0019359043CF225F6A89 /* Matchability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4FA22A1AE1E2789B1C2A9EDD568BD4 /* Matchability.swift */; };
 		4F98422E944FE73549B8BD30B17000A3 /* Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1A0CCFC86530E6B8460B738633F68C /* Diff.swift */; };
-		69D6EABDB5436F32E227EF47228174B0 /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29C60E12B42191CA26EE0C157811327 /* CollectionViewDataSource.swift */; };
+		6C61B5288852647B573E0732EA6FF705 /* Ferrara.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC28275CD140E4944104CC96914FFBF2 /* Ferrara.framework */; };
 		6D4E381DFD3609CD904B37B8312C1C11 /* Pods-Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C9BDE82371C83FA9AE91B05F77ACAA36 /* Pods-Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7ACF882DA25C5BBDAAF838E4B4D7FAC3 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AB1DBB72BC1B30D80BDA9D3CC59F48 /* Section.swift */; };
-		83BE29206FA325BD567692765430C334 /* Monviso-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DC1F8064E1F522EB042C1F2025A89FC0 /* Monviso-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9DA1745D949AF487B78C73ECB9106E15 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9CDE18F0448D1B9B20763353521574 /* DataSource.swift */; };
-		A931CC7C1F18919AADF86F0CA0D21FD7 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F945F78DA7E1FE5CD5D43EF6ED91276 /* Identifiable.swift */; };
-		BFC6A05DD97F0576BD978221EA6406A9 /* UserInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D75271EAFBC93E921B025FFD83E02 /* UserInteraction.swift */; };
+		70BDDB824721B8873C4F7B212E62B286 /* AccessError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A86B1E329C09140BD6782342A76689B /* AccessError.swift */; };
+		7204305DA2D2185C342D3170944B3208 /* UserInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B7EB4CF1FF2BB0E2766C37F3732941 /* UserInteraction.swift */; };
+		94C2D5519E407CC05EBF47D42AC20231 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5329D2F033FC45D668DB0CB562D2A90 /* Foundation.framework */; };
+		A5EC32AE22AACDB1A7C71F0F9509E6E2 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEEE62B43FC387B431F9A958C4AEAA0 /* TableView.swift */; };
+		C1A8157B4933B47D3764726DA2767244 /* ItemUIProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1AC4EFD5AD4AFDF3FD0B2E97C9C138 /* ItemUIProviding.swift */; };
+		C96FCCE2CEEDFD1F1453CBD2AE12FE72 /* SafeAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83EECACFD4D156FA4A062FE2E73D065 /* SafeAccess.swift */; };
 		CBA0FD4CC193E74FA0180251D8B5039C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5329D2F033FC45D668DB0CB562D2A90 /* Foundation.framework */; };
 		D43976DBBCC85737CBC61AF0B83AAF78 /* Pods-Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 699118D7DDD5F335E4FB8B17DC0F12D2 /* Pods-Example-dummy.m */; };
 		D85AA35F978DD311F22460CA1D80D0FF /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBC7F0892CBB256FDAFA90F415583FF /* Match.swift */; };
-		DB69D74DC0CBE38D7E59B46AD69D2FB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5329D2F033FC45D668DB0CB562D2A90 /* Foundation.framework */; };
 		DE87E07C4D0193DE4F7C9E97CDAB0D70 /* Ferrara-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 401C997B5F09A0AAB8AFF6D762809394 /* Ferrara-dummy.m */; };
-		E25D7A7B70B9324E4693656A2E482DE9 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F23A0E9016C0FE29ABFB88521005A /* TableViewDataSource.swift */; };
 		EF56A4B46F174ABB5EB4800A7F8F6985 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEDFA38845C7CE917DD8A17593C3088 /* Identifiable.swift */; };
-		F4CA24DAACC2B9A751BA9E5F43DF351D /* Ferrara.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC28275CD140E4944104CC96914FFBF2 /* Ferrara.framework */; };
 		F5553B41938040CA71AB0B6E1CA585E2 /* Ferrara-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B4B92853ABE6094F3CEAD6AB51429BF6 /* Ferrara-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FEC79B50F3AA3EBD9F18A9681A3DB8A8 /* AccessError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF05523994CE5EEC35AB8804C508A4 /* AccessError.swift */; };
+		FE01A6B7292B8C87E3A8A4E85D8367DA /* Monviso-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 79361ADA8CB19B20765AC05794CFCC21 /* Monviso-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFBA231C06DE0707942CAE4D369DF693 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56366FC6F9547EE0AC59B1AD032BBE7 /* CollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +36,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5E7C32D148F5E706E3BD52697F7395E4;
+			remoteGlobalIDString = 23361EC5D2372AD186B6327A4D42EC30;
 			remoteInfo = Monviso;
 		};
 		5544BA7C5B9B0E5CC8E1A40A358F0BD9 /* PBXContainerItemProxy */ = {
@@ -45,7 +46,7 @@
 			remoteGlobalIDString = D348970192881ABBBFEA477D7FFAA9C7;
 			remoteInfo = Ferrara;
 		};
-		8519862CA3D5295C6BCE485A1797E2FA /* PBXContainerItemProxy */ = {
+		8DDFBB9B8AEDEF443F1D19B32C664C25 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -57,43 +58,44 @@
 /* Begin PBXFileReference section */
 		01E6907CF2644EB1CF8E23F708A3DA0B /* Pods-Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-resources.sh"; sourceTree = "<group>"; };
 		119072C64A19799964E1620D83F514FB /* Pods-Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Example.modulemap"; sourceTree = "<group>"; };
+		11B80DA7E0196707E570A2C500961D6E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		149054C495E8EC590CAB4C524133016F /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		1A86B1E329C09140BD6782342A76689B /* AccessError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AccessError.swift; sourceTree = "<group>"; };
 		1BC1C0FD753C48E56FE0677A3A2C7DD9 /* Ferrara.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Ferrara.modulemap; sourceTree = "<group>"; };
-		281F23A0E9016C0FE29ABFB88521005A /* TableViewDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
-		2BB9C51303AC5E57DF4DE301D0873362 /* Monviso.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Monviso.xcconfig; sourceTree = "<group>"; };
 		3698AA3C89F4DE6D946AF7F6659A7D26 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		401C997B5F09A0AAB8AFF6D762809394 /* Ferrara-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Ferrara-dummy.m"; sourceTree = "<group>"; };
+		495DBF3EA1053B6370DCBF10BADCE152 /* DataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		4C1AC4EFD5AD4AFDF3FD0B2E97C9C138 /* ItemUIProviding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ItemUIProviding.swift; sourceTree = "<group>"; };
 		552550F3F912264E5D073F8893691F88 /* Pods-Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-frameworks.sh"; sourceTree = "<group>"; };
-		56FB69F2D264F150AFB61C1012F64020 /* Monviso-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Monviso-prefix.pch"; sourceTree = "<group>"; };
 		5A6D967E8AB262755B2F165B880A2680 /* Ferrara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Ferrara.framework; path = Ferrara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F945F78DA7E1FE5CD5D43EF6ED91276 /* Identifiable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		674CCDB8557FDD4E7ABB5F255804FDD8 /* Section.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		699118D7DDD5F335E4FB8B17DC0F12D2 /* Pods-Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-dummy.m"; sourceTree = "<group>"; };
-		74C4CC7089BBC880842174CE37F59FE9 /* Monviso.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Monviso.modulemap; sourceTree = "<group>"; };
+		6AEEE62B43FC387B431F9A958C4AEAA0 /* TableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		75ABCE56BF386567C9C20D5FAC9D38A3 /* Ferrara.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Ferrara.xcconfig; sourceTree = "<group>"; };
 		764D33E23CE6C1111110B04F5CBADADB /* Pods-Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		7E0C5A64641AD40F75656710C546DD0F /* ItemUIProviding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ItemUIProviding.swift; sourceTree = "<group>"; };
-		8AFF05523994CE5EEC35AB8804C508A4 /* AccessError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AccessError.swift; sourceTree = "<group>"; };
+		79361ADA8CB19B20765AC05794CFCC21 /* Monviso-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Monviso-umbrella.h"; sourceTree = "<group>"; };
+		7D4FA22A1AE1E2789B1C2A9EDD568BD4 /* Matchability.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Matchability.swift; sourceTree = "<group>"; };
 		9182A3E8A10A384B46F0DEB523736382 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Example.framework; path = "Pods-Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		98A3DB960D213B60E90F093AED054DC2 /* Ferrara-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Ferrara-prefix.pch"; sourceTree = "<group>"; };
+		9C65604F8580C2154CC92A0EEA5E5E42 /* Monviso.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Monviso.xcconfig; sourceTree = "<group>"; };
 		9CEDFA38845C7CE917DD8A17593C3088 /* Identifiable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Identifiable.swift; path = Source/Identifiable.swift; sourceTree = "<group>"; };
 		A661FECCEBFF9D01869EE3B29C4C1EFF /* Pods-Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		B29C60E12B42191CA26EE0C157811327 /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
-		B33D86DE2DEF2008DDE20177AEA944A0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4B92853ABE6094F3CEAD6AB51429BF6 /* Ferrara-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Ferrara-umbrella.h"; sourceTree = "<group>"; };
-		B5BCA91C26BF9ADE4B576E67EFE2A924 /* Monviso-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Monviso-dummy.m"; sourceTree = "<group>"; };
+		B9B7EB4CF1FF2BB0E2766C37F3732941 /* UserInteraction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserInteraction.swift; sourceTree = "<group>"; };
+		BCF9A19C58003C9783C418E9382D9428 /* Monviso-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Monviso-dummy.m"; sourceTree = "<group>"; };
 		BD1A0CCFC86530E6B8460B738633F68C /* Diff.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Diff.swift; path = Source/Diff.swift; sourceTree = "<group>"; };
-		BE9CDE18F0448D1B9B20763353521574 /* DataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		BFBC7F0892CBB256FDAFA90F415583FF /* Match.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Match.swift; path = Source/Match.swift; sourceTree = "<group>"; };
+		C83EECACFD4D156FA4A062FE2E73D065 /* SafeAccess.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SafeAccess.swift; sourceTree = "<group>"; };
 		C9BDE82371C83FA9AE91B05F77ACAA36 /* Pods-Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Example-umbrella.h"; sourceTree = "<group>"; };
-		DC1F8064E1F522EB042C1F2025A89FC0 /* Monviso-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Monviso-umbrella.h"; sourceTree = "<group>"; };
+		C9DAE7AD95729D535E11F270C3BAB835 /* Monviso-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Monviso-prefix.pch"; sourceTree = "<group>"; };
 		DC28275CD140E4944104CC96914FFBF2 /* Ferrara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Ferrara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E512A5F985F876750237FD237C3AEEDA /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		EFFB74AAA6B2AE8DABF0E88E61E09178 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F51D75271EAFBC93E921B025FFD83E02 /* UserInteraction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserInteraction.swift; sourceTree = "<group>"; };
 		F5329D2F033FC45D668DB0CB562D2A90 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		F6AB1DBB72BC1B30D80BDA9D3CC59F48 /* Section.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		F56366FC6F9547EE0AC59B1AD032BBE7 /* CollectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		FE0095B6B5A23D5B56532AA0E843B9C7 /* Monviso.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Monviso.framework; path = Monviso.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEDB873B11530317C7E34523B0F8F7B3 /* Monviso.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Monviso.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,12 +107,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A348F35CA393D57AE6CCBC35E0BE3D4E /* Frameworks */ = {
+		A1A74134BE7BAC7BD3F137E5998E9F45 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4CA24DAACC2B9A751BA9E5F43DF351D /* Ferrara.framework in Frameworks */,
-				DB69D74DC0CBE38D7E59B46AD69D2FB9 /* Foundation.framework in Frameworks */,
+				6C61B5288852647B573E0732EA6FF705 /* Ferrara.framework in Frameworks */,
+				94C2D5519E407CC05EBF47D42AC20231 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,30 +127,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		500FDA8BB47FC376FC644DD0432CC5CC /* Sectioned */ = {
+		0CCE1CC2C29E162D965E508DD2A566DE /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				B29C60E12B42191CA26EE0C157811327 /* CollectionViewDataSource.swift */,
-				F6AB1DBB72BC1B30D80BDA9D3CC59F48 /* Section.swift */,
-				281F23A0E9016C0FE29ABFB88521005A /* TableViewDataSource.swift */,
-				F51D75271EAFBC93E921B025FFD83E02 /* UserInteraction.swift */,
+				1A86B1E329C09140BD6782342A76689B /* AccessError.swift */,
+				495DBF3EA1053B6370DCBF10BADCE152 /* DataSource.swift */,
+				4C1AC4EFD5AD4AFDF3FD0B2E97C9C138 /* ItemUIProviding.swift */,
+				7D4FA22A1AE1E2789B1C2A9EDD568BD4 /* Matchability.swift */,
+				C83EECACFD4D156FA4A062FE2E73D065 /* SafeAccess.swift */,
+				F93EF2A32F75E4E27CE2404CE39B41FE /* Sectioned */,
 			);
-			name = Sectioned;
-			path = Sectioned;
-			sourceTree = "<group>";
-		};
-		6813A5BA8B8EC93A2271C1DFE2990792 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				B33D86DE2DEF2008DDE20177AEA944A0 /* Info.plist */,
-				74C4CC7089BBC880842174CE37F59FE9 /* Monviso.modulemap */,
-				2BB9C51303AC5E57DF4DE301D0873362 /* Monviso.xcconfig */,
-				B5BCA91C26BF9ADE4B576E67EFE2A924 /* Monviso-dummy.m */,
-				56FB69F2D264F150AFB61C1012F64020 /* Monviso-prefix.pch */,
-				DC1F8064E1F522EB042C1F2025A89FC0 /* Monviso-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/Monviso";
+			name = Source;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		69BB9D769BFC36FFCC09B3CCAE7907B6 /* iOS */ = {
@@ -170,7 +160,7 @@
 		7678D6DE5050942C625419F78EB1425B /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F19E9C6C5A7CDBC919782C885AA1ADAE /* Monviso */,
+				8A50A08676D699FA4FE24B300D67449D /* Monviso */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -194,6 +184,30 @@
 				69BB9D769BFC36FFCC09B3CCAE7907B6 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8A50A08676D699FA4FE24B300D67449D /* Monviso */ = {
+			isa = PBXGroup;
+			children = (
+				0CCE1CC2C29E162D965E508DD2A566DE /* Source */,
+				98F0E56A91272FDC940BC836C52AE9A5 /* Support Files */,
+			);
+			name = Monviso;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		98F0E56A91272FDC940BC836C52AE9A5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				11B80DA7E0196707E570A2C500961D6E /* Info.plist */,
+				FEDB873B11530317C7E34523B0F8F7B3 /* Monviso.modulemap */,
+				9C65604F8580C2154CC92A0EEA5E5E42 /* Monviso.xcconfig */,
+				BCF9A19C58003C9783C418E9382D9428 /* Monviso-dummy.m */,
+				C9DAE7AD95729D535E11F270C3BAB835 /* Monviso-prefix.pch */,
+				79361ADA8CB19B20765AC05794CFCC21 /* Monviso-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Monviso";
 			sourceTree = "<group>";
 		};
 		B4D40D3563E899FD127115312863DC66 /* Products */ = {
@@ -232,16 +246,6 @@
 			path = "../Target Support Files/Ferrara";
 			sourceTree = "<group>";
 		};
-		F19E9C6C5A7CDBC919782C885AA1ADAE /* Monviso */ = {
-			isa = PBXGroup;
-			children = (
-				F70D8DDD660DCEE44B8E7FAEBDD2849E /* Source */,
-				6813A5BA8B8EC93A2271C1DFE2990792 /* Support Files */,
-			);
-			name = Monviso;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 		F3E9FFCE1234426F897FB5ECD2CE702C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,17 +254,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		F70D8DDD660DCEE44B8E7FAEBDD2849E /* Source */ = {
+		F93EF2A32F75E4E27CE2404CE39B41FE /* Sectioned */ = {
 			isa = PBXGroup;
 			children = (
-				8AFF05523994CE5EEC35AB8804C508A4 /* AccessError.swift */,
-				BE9CDE18F0448D1B9B20763353521574 /* DataSource.swift */,
-				5F945F78DA7E1FE5CD5D43EF6ED91276 /* Identifiable.swift */,
-				7E0C5A64641AD40F75656710C546DD0F /* ItemUIProviding.swift */,
-				500FDA8BB47FC376FC644DD0432CC5CC /* Sectioned */,
+				F56366FC6F9547EE0AC59B1AD032BBE7 /* CollectionView.swift */,
+				674CCDB8557FDD4E7ABB5F255804FDD8 /* Section.swift */,
+				6AEEE62B43FC387B431F9A958C4AEAA0 /* TableView.swift */,
+				B9B7EB4CF1FF2BB0E2766C37F3732941 /* UserInteraction.swift */,
 			);
-			name = Source;
-			path = Source;
+			name = Sectioned;
+			path = Sectioned;
 			sourceTree = "<group>";
 		};
 		FE9811ABEB5931E154211FCA14B78350 /* Pods-Example */ = {
@@ -284,11 +287,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		17C0DB7D137683782552B36C2EACC948 /* Headers */ = {
+		537A9CE4241A01CA2C4CBF6E7C31F390 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83BE29206FA325BD567692765430C334 /* Monviso-umbrella.h in Headers */,
+				FE01A6B7292B8C87E3A8A4E85D8367DA /* Monviso-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +314,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		23361EC5D2372AD186B6327A4D42EC30 /* Monviso */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B338A635331D6EAF12E1A762E87DAACC /* Build configuration list for PBXNativeTarget "Monviso" */;
+			buildPhases = (
+				15270E11240FB39668F8E75F0EEAD343 /* Sources */,
+				A1A74134BE7BAC7BD3F137E5998E9F45 /* Frameworks */,
+				537A9CE4241A01CA2C4CBF6E7C31F390 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4C0856CC7F2CBFA9AFD56A6FD399A20C /* PBXTargetDependency */,
+			);
+			name = Monviso;
+			productName = Monviso;
+			productReference = FE0095B6B5A23D5B56532AA0E843B9C7 /* Monviso.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		2A5D882993214014570F81FF3A063518 /* Pods-Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E8940AED5A48C31BAB9C2FD4A5F4EAD7 /* Build configuration list for PBXNativeTarget "Pods-Example" */;
@@ -328,24 +349,6 @@
 			name = "Pods-Example";
 			productName = "Pods-Example";
 			productReference = 9182A3E8A10A384B46F0DEB523736382 /* Pods_Example.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		5E7C32D148F5E706E3BD52697F7395E4 /* Monviso */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CE46BECE34CEB0E4FBCE0BE9204F0979 /* Build configuration list for PBXNativeTarget "Monviso" */;
-			buildPhases = (
-				B3CCEF5A2F91A7E4EFBCDC86FF3C0E30 /* Sources */,
-				A348F35CA393D57AE6CCBC35E0BE3D4E /* Frameworks */,
-				17C0DB7D137683782552B36C2EACC948 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				62F4C50EBDA59F51192283256D24F783 /* PBXTargetDependency */,
-			);
-			name = Monviso;
-			productName = Monviso;
-			productReference = FE0095B6B5A23D5B56532AA0E843B9C7 /* Monviso.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		D348970192881ABBBFEA477D7FFAA9C7 /* Ferrara */ = {
@@ -387,7 +390,7 @@
 			projectRoot = "";
 			targets = (
 				D348970192881ABBBFEA477D7FFAA9C7 /* Ferrara */,
-				5E7C32D148F5E706E3BD52697F7395E4 /* Monviso */,
+				23361EC5D2372AD186B6327A4D42EC30 /* Monviso */,
 				2A5D882993214014570F81FF3A063518 /* Pods-Example */,
 			);
 		};
@@ -402,19 +405,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B3CCEF5A2F91A7E4EFBCDC86FF3C0E30 /* Sources */ = {
+		15270E11240FB39668F8E75F0EEAD343 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEC79B50F3AA3EBD9F18A9681A3DB8A8 /* AccessError.swift in Sources */,
-				69D6EABDB5436F32E227EF47228174B0 /* CollectionViewDataSource.swift in Sources */,
-				9DA1745D949AF487B78C73ECB9106E15 /* DataSource.swift in Sources */,
-				A931CC7C1F18919AADF86F0CA0D21FD7 /* Identifiable.swift in Sources */,
-				299FAEFB0C724BADECD794AB5FCA9FFD /* ItemUIProviding.swift in Sources */,
-				0166B08ECA38D3B5B34FBED7A378CFFD /* Monviso-dummy.m in Sources */,
-				7ACF882DA25C5BBDAAF838E4B4D7FAC3 /* Section.swift in Sources */,
-				E25D7A7B70B9324E4693656A2E482DE9 /* TableViewDataSource.swift in Sources */,
-				BFC6A05DD97F0576BD978221EA6406A9 /* UserInteraction.swift in Sources */,
+				70BDDB824721B8873C4F7B212E62B286 /* AccessError.swift in Sources */,
+				FFBA231C06DE0707942CAE4D369DF693 /* CollectionView.swift in Sources */,
+				02558180709126E018CA7C256F941E7C /* DataSource.swift in Sources */,
+				C1A8157B4933B47D3764726DA2767244 /* ItemUIProviding.swift in Sources */,
+				49DF7F7D9A0C0019359043CF225F6A89 /* Matchability.swift in Sources */,
+				3158498A35FF8D1DA67F6464258B3595 /* Monviso-dummy.m in Sources */,
+				C96FCCE2CEEDFD1F1453CBD2AE12FE72 /* SafeAccess.swift in Sources */,
+				2B929C0841645C9E2C935A719C2BE437 /* Section.swift in Sources */,
+				A5EC32AE22AACDB1A7C71F0F9509E6E2 /* TableView.swift in Sources */,
+				7204305DA2D2185C342D3170944B3208 /* UserInteraction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,22 +436,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4C0856CC7F2CBFA9AFD56A6FD399A20C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Ferrara;
+			target = D348970192881ABBBFEA477D7FFAA9C7 /* Ferrara */;
+			targetProxy = 8DDFBB9B8AEDEF443F1D19B32C664C25 /* PBXContainerItemProxy */;
+		};
 		6021C68D4D390274BC6E7FB1F206D7B9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Ferrara;
 			target = D348970192881ABBBFEA477D7FFAA9C7 /* Ferrara */;
 			targetProxy = 5544BA7C5B9B0E5CC8E1A40A358F0BD9 /* PBXContainerItemProxy */;
 		};
-		62F4C50EBDA59F51192283256D24F783 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Ferrara;
-			target = D348970192881ABBBFEA477D7FFAA9C7 /* Ferrara */;
-			targetProxy = 8519862CA3D5295C6BCE485A1797E2FA /* PBXContainerItemProxy */;
-		};
 		797177B5D327FB6605CBF9F886166D31 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Monviso;
-			target = 5E7C32D148F5E706E3BD52697F7395E4 /* Monviso */;
+			target = 23361EC5D2372AD186B6327A4D42EC30 /* Monviso */;
 			targetProxy = 501C0A8099F29D337F78F389B5904AF8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -558,9 +562,9 @@
 			};
 			name = Release;
 		};
-		71012B73D86FD2288AC37CE14670D54C /* Debug */ = {
+		8CDA9F2F022B11DBA676C15C9AD14A40 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2BB9C51303AC5E57DF4DE301D0873362 /* Monviso.xcconfig */;
+			baseConfigurationReference = 9C65604F8580C2154CC92A0EEA5E5E42 /* Monviso.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -590,6 +594,38 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		9E6DC11423AF09E5D41A78EF39EFC51D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C65604F8580C2154CC92A0EEA5E5E42 /* Monviso.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Monviso/Monviso-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Monviso/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Monviso/Monviso.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Monviso;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		A72284CB52F9E6EF44F979DE0E262D0B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -626,38 +662,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		AD6DECF90BB6959BC9E3793FB379D46A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2BB9C51303AC5E57DF4DE301D0873362 /* Monviso.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Monviso/Monviso-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Monviso/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Monviso/Monviso.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Monviso;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		E4F26E6EB105713A6A7E7E2E283AC2DF /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -759,11 +763,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE46BECE34CEB0E4FBCE0BE9204F0979 /* Build configuration list for PBXNativeTarget "Monviso" */ = {
+		B338A635331D6EAF12E1A762E87DAACC /* Build configuration list for PBXNativeTarget "Monviso" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				71012B73D86FD2288AC37CE14670D54C /* Debug */,
-				AD6DECF90BB6959BC9E3793FB379D46A /* Release */,
+				8CDA9F2F022B11DBA676C15C9AD14A40 /* Debug */,
+				9E6DC11423AF09E5D41A78EF39EFC51D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

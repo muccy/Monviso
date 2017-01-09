@@ -15,9 +15,13 @@ class TableViewController: UITableViewController {
     }
  
     private var entries = [Entry(title: "1"), Entry(title: "2"), Entry(title: "3")]
+    private let dataSource = TableViewDataSource()
     
-    private let dataSource: TableViewDataSource = {
-        let cellFactory = TableViewDataSource.CellFactory() { item, indexPath, tableView in
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        dataSource.cellFactory.creator = { item, indexPath, tableView in
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             
             if let entry = item as? Entry {
@@ -27,13 +31,6 @@ class TableViewController: UITableViewController {
             return cell
         }
         
-        return TableViewDataSource(cellFactory: cellFactory)
-    }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.dataSource = dataSource
         
         dataSource.content.sections = [ TableViewDataSource.Section(items: entries) ]

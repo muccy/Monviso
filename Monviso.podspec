@@ -19,5 +19,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/muccy/Monviso.git", :tag => s.version }
   s.source_files  = "Source", "Source/**/*.swift"
   
-  s.dependency  "Ferrara", "~> 1.0"
+  s.dependency  "Ferrara", "~> 1.1"
 end

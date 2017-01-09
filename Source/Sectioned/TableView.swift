@@ -1,23 +1,56 @@
 import UIKit
+import Ferrara
 
-public struct TableViewSection<Item, Header, Footer>: MutableSection {
+/// A section of table content
+public struct TableViewSection<Item, Header, Footer>: MutableSection, Identifiable, Matchable, Equatable
+{
+    /// Section identifier
+    public var identifier: String
+    /// Section items
     public var items: [Item]
+    /// Section header
     public var header: Header?
+    /// Section footer
     public var footer: Footer?
     
-    public init(items: [Item] = [], header: Header? = nil, footer: Footer? = nil)
+    public init(identifier: String = UUID().uuidString, items: [Item] = [], header: Header? = nil, footer: Footer? = nil)
     {
+        self.identifier = identifier
         self.items = items
         self.header = header
         self.footer = footer
     }
+    
+    public static func ==(lhs: TableViewSection, rhs: TableViewSection) -> Bool {
+        return lhs.identifier == rhs.identifier &&
+                equalityWithMatch(between: rhs.items, and: rhs.items) &&
+                equalityWithMatch(between: rhs.header, and: rhs.header) &&
+                equalityWithMatch(between: rhs.footer, and: rhs.footer)
+    }
 }
 
-public struct TableViewContent<Item, Header, Footer>: MutableSectionContainer {
+/// A section index item of table content
+public struct TableViewSectionIndexItem {
+    /// Item displayed title
+    let title: String
+    /// Bound section identifier
+    let sectionIdentifier: String
+    
+    public init(title: String, sectionIdentifier: String) {
+        self.title = title
+        self.sectionIdentifier = sectionIdentifier
+    }
+}
+
+/// Content of table
+public struct TableViewContent<Item, Header, Footer>: MutableSectionContainer
+{
     public typealias Element = TableViewSection<Item, Header, Footer>
     public var sections = [Element]()
+    public var sectionIndexItems: [TableViewSectionIndexItem]? = nil
 }
 
+/// Data source of a table view
 final public class TableViewDataSource: NSObject, DataSource, UITableViewDataSource
 {
     public typealias Content = TableViewContent<Any, Any, Any>
@@ -29,18 +62,22 @@ final public class TableViewDataSource: NSObject, DataSource, UITableViewDataSou
     public typealias EditHandler = UserInteractionHandler<EditAttempt<IndexPath, Content>, EditCommit<IndexPath, UITableViewCellEditingStyle, Content>>
     public typealias SectionTitleMaker = (Section, Int) -> String?
 
+    /// Content of table view data source
     public var content = Content()
-    public let cellFactory: CellFactory
+    /// Factory which produces cells
+    public var cellFactory = CellFactory() { item, _, _ in throw AccessError.noUI(item: item) }
     
+    /// Handler of move interactions. Default handler is disabled but is able to move items through sections
     public var moveHandler = MoveHandler({ _ in return false }) { _ in }
-    public var editHandler = EditHandler({ _ in return false}) { _ in }
+    /// Handler of edit interactions
+    public var editHandler = EditHandler({ _ in return false }) { _ in }
     
+    /// Closure which makes section header titles
     public var sectionHeaderTitleMaker: SectionTitleMaker = { section, _ in return section.header as? String }
+    /// Closure which makes section footer titles
     public var sectionFooterTitleMaker: SectionTitleMaker = { section, _ in section.footer as? String }
     
-    public required init(cellFactory: CellFactory) {
-        self.cellFactory = cellFactory
-        
+    public required override init() {
         super.init()
         self.moveHandler.maker = { [unowned self] commit in
             try self.content.move(itemAt: commit.from, to: commit.to)
@@ -109,12 +146,21 @@ final public class TableViewDataSource: NSObject, DataSource, UITableViewDataSou
     }
     
     public func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return nil // TODO
+        return content.sectionIndexItems?.map { $0.title }
     }
     
     public func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int
     {
-        return 0 // TODO
+        do {
+            guard let indexItem = try content.sectionIndexItems?.element(at: index) else {
+                return 0
+            }
+            
+            return content.indexOfSection(with: indexItem.sectionIdentifier) ?? 0
+        }
+        catch let error {
+            fatalError("Data source can not find section bound to index item with title \"\(title)\" at index \(index): \(error)")
+        }
     }
 
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)

@@ -8,16 +8,20 @@ public protocol Identifiable {
     var identifier: Identifier { get }
 }
 
-extension Matchable where Self: Identifiable & Equatable {
-    func match(with object: Self) -> Match {
-        if (self == object) {
-            return .equal
+public extension Matchable where Self: Identifiable & Equatable {
+    func match(with object: Any) -> Match {
+        if let object = object as? Self  {
+            if (self == object) {
+                return .equal
+            }
+            else if (identifier == object.identifier) {
+                return .change
+            }
+            else {
+                return .none
+            }
         }
-        else if (identifier == object.identifier) {
-            return .change
-        }
-        else {
-            return .none
-        }
+
+        return .none
     }
 }
