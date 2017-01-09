@@ -10,11 +10,7 @@ import UIKit
 import Monviso
 
 class TableViewController: UITableViewController {
-    private struct Entry {
-        let title: String
-    }
- 
-    private var entries = [Entry(title: "1"), Entry(title: "2"), Entry(title: "3")]
+    private var entries = ["1", "2", "3"]
     private let dataSource = TableViewDataSource()
     
     override func viewDidLoad() {
@@ -24,15 +20,14 @@ class TableViewController: UITableViewController {
         dataSource.cellFactory.creator = { item, indexPath, tableView in
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             
-            if let entry = item as? Entry {
-                cell.textLabel!.text = entry.title
+            if let entry = item as? String {
+                cell.textLabel!.text = entry
             }
             
             return cell
         }
         
         tableView.dataSource = dataSource
-        
         dataSource.content.sections = [ TableViewDataSource.Section(items: entries) ]
     }
 }
