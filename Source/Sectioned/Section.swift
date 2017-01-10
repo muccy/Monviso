@@ -158,13 +158,11 @@ public extension MutableSectionContainer where
         var sourceSection = try section(at: sourceIndexPath.section)
         let item = try self.item(at: sourceIndexPath)
         sourceSection.items.remove(at: sourceIndexPath.item)
-        
-        var destinationSection = try section(at: destinationIndexPath.section)
-        destinationSection.items.insert(item, at: destinationIndexPath.item)
-        
         sections.remove(at: sourceIndexPath.section)
         sections.insert(sourceSection, at: sourceIndexPath.section)
         
+        var destinationSection = try section(at: destinationIndexPath.section)
+        destinationSection.items.insert(item, at: destinationIndexPath.item)
         sections.remove(at: destinationIndexPath.section)
         sections.insert(destinationSection, at: destinationIndexPath.section)
     }

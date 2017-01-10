@@ -21,8 +21,8 @@ public struct CollectionViewSection<Item>: MutableSection, Identifiable, Matchab
     public static func ==(lhs: CollectionViewSection, rhs: CollectionViewSection) -> Bool
     {
         return lhs.identifier == rhs.identifier &&
-            equalityWithMatch(between: rhs.items, and: rhs.items) &&
-            equalityWithMatch(between: rhs.userInfo, and: rhs.userInfo)
+            equalityWithMatch(between: lhs.items, and: rhs.items) &&
+            equalityWithMatch(between: lhs.userInfo, and: rhs.userInfo)
     }
 }
 

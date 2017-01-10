@@ -10,24 +10,47 @@ import UIKit
 import Monviso
 
 class TableViewController: UITableViewController {
-    private var entries = ["1", "2", "3"]
+    enum Example {
+        case playground
+    }
+    
     private let dataSource = TableViewDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         dataSource.cellFactory.creator = { item, indexPath, tableView in
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            
-            if let entry = item as? String {
-                cell.textLabel!.text = entry
+            if let example = item as? Example {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+                
+                switch example {
+                case .playground:
+                    cell.textLabel!.text = "Playground"
+                }
+                
+                return cell
             }
-            
-            return cell
+            else {
+                throw AccessError.noUI(item: item)
+            }
         }
         
         tableView.dataSource = dataSource
-        dataSource.content.sections = [ TableViewDataSource.Section(items: entries) ]
+        dataSource.content.sections = [
+            TableViewDataSource.Section(items: [ Example.playground ]),
+            TableViewDataSource.Section(items: [], header: "Section"),
+            TableViewDataSource.Section(items: [], header: "Row")
+        ]
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = try? dataSource.content.item(at: indexPath)
+        
+        if let example = item as? Example {
+            switch example {
+            case .playground:
+                performSegue(withIdentifier: "playground", sender: nil)
+            }
+        }
     }
 }

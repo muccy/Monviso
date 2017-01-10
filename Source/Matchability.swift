@@ -2,6 +2,7 @@ import Foundation
 import Ferrara
 
 extension Array: Matchable {
+    // Can return change only if passed array is paired
     public func match(with object: Any) -> Match {
         guard let otherArray = object as? Array, count == otherArray.count else {
             return .none
@@ -21,21 +22,17 @@ extension Array: Matchable {
                 case .none:
                     noneCount = noneCount + 1
                 } // switch
-                
-                if noneCount > 0 {
-                    break // Abort early
-                }
             } // if
         } // for
         
-        if noneCount > 0 {
-            return .none
+        if equalCount == count {
+            return .equal
         }
         else if changeCount > 0 {
             return .change
         }
         else {
-            return .equal
+            return .none
         }
     }
 }
@@ -66,21 +63,17 @@ extension Dictionary: Matchable {
                 else {
                     noneCount = noneCount + 1
                 }
-                
-                if noneCount > 0 {
-                    break // Abort early
-                }
             } // if
         } // for
         
-        if noneCount > 0 {
-            return .none
+        if equalCount == count {
+            return .equal
         }
         else if changeCount > 0 {
             return .change
         }
         else {
-            return .equal
+            return .none
         }
     }
 }

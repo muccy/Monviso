@@ -1,5 +1,5 @@
 PODS:
-  - Ferrara (1.1.2)
+  - Ferrara (1.1.4)
   - Monviso (0.0.1):
     - Ferrara (~> 1.1)
 
@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
     :path: ".."
 
 SPEC CHECKSUMS:
-  Ferrara: b946fbf923248365a2fc5bd96ebc111086cffa26
+  Ferrara: f8414b8966c3f0cb36dbc35caeed11d3f69b1468
   Monviso: 3a9dd25f4f254b6131dceaf7757b15b81a65303b
 
 PODFILE CHECKSUM: 9415cd1658f34350797f821cfc16e7fb9d7327c6

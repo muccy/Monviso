@@ -65,17 +65,19 @@ public struct EditAttempt<Location, Content>: UserInteractionStep {
 }
 
 /// Edit user interaction commit
-public struct EditCommit<Location, Style, Content>: UserInteractionStep {
+public struct EditCommit<Location, Style, Content, Client>: UserInteractionStep {
     /// Where edit is committed
     public let at: Location
     /// Style of commit
     public let style: Style
     public let content: Content
+    public let client: Client
     
-    public init(at: Location, style: Style, with content: Content) {
+    public init(at: Location, style: Style, with content: Content, in client: Client) {
         self.at = at
         self.style = style
         self.content = content
+        self.client = client
     }
 }
 

@@ -20,12 +20,12 @@ public struct TableViewSection<Item, Header, Footer>: MutableSection, Identifiab
         self.header = header
         self.footer = footer
     }
-    
+
     public static func ==(lhs: TableViewSection, rhs: TableViewSection) -> Bool {
         return lhs.identifier == rhs.identifier &&
-                equalityWithMatch(between: rhs.items, and: rhs.items) &&
-                equalityWithMatch(between: rhs.header, and: rhs.header) &&
-                equalityWithMatch(between: rhs.footer, and: rhs.footer)
+                equalityWithMatch(between: lhs.items, and: rhs.items) &&
+                equalityWithMatch(between: lhs.header, and: rhs.header) &&
+                equalityWithMatch(between: lhs.footer, and: rhs.footer)
     }
 }
 
@@ -71,7 +71,7 @@ final public class TableViewDataSource: NSObject, DataSource, UITableViewDataSou
     
     public typealias CellFactory = ItemUIFactory<Item, IndexPath, UITableView, UITableViewCell>
     public typealias MoveHandler = UserInteractionHandler<MoveAttempt<IndexPath, Content>, MoveCommit<IndexPath, Content>>
-    public typealias EditHandler = UserInteractionHandler<EditAttempt<IndexPath, Content>, EditCommit<IndexPath, UITableViewCellEditingStyle, Content>>
+    public typealias EditHandler = UserInteractionHandler<EditAttempt<IndexPath, Content>, EditCommit<IndexPath, UITableViewCellEditingStyle, Content, UITableView>>
     public typealias SectionTitleMaker = (Section, Int) -> String?
 
     /// Content of table view data source
@@ -81,7 +81,7 @@ final public class TableViewDataSource: NSObject, DataSource, UITableViewDataSou
     
     /// Handler of move interactions. Default handler is disabled but is able to move items through sections
     public var moveHandler = MoveHandler({ _ in return false }) { _ in }
-    /// Handler of edit interactions
+    /// Handler of edit interactions. Default handler is disabled but is able to delete items from content
     public var editHandler = EditHandler({ _ in return false }) { _ in }
     
     /// Closure which makes section header titles
@@ -91,8 +91,25 @@ final public class TableViewDataSource: NSObject, DataSource, UITableViewDataSou
     
     public required override init() {
         super.init()
+        
         self.moveHandler.maker = { [unowned self] commit in
             try self.content.moveItem(from: commit.from, to: commit.to)
+        }
+        
+        self.editHandler.maker = { [unowned self] commit in
+            switch commit.style {
+            case .delete:
+                var section = try! commit.content.section(at: commit.at.section)
+                section.items.remove(at: commit.at.row)
+                
+                var sections = commit.content.sections
+                sections[commit.at.section] = section
+                
+                self.content.sections = sections
+                commit.client.deleteRows(at: [commit.at], with: .automatic)
+            default:
+                break // Do nothing
+            }
         }
     }
     
@@ -178,7 +195,7 @@ final public class TableViewDataSource: NSObject, DataSource, UITableViewDataSou
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
     {
         do {
-            let commit = EditCommit(at: indexPath, style: editingStyle, with: content)
+            let commit = EditCommit(at: indexPath, style: editingStyle, with: content, in: tableView)
             try editHandler.apply(userInteraction: commit)
         }
         catch let error {

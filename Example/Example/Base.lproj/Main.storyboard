@@ -93,7 +93,7 @@
             </objects>
             <point key="canvasLocation" x="1775" y="940"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Table Examples-->
         <scene sceneID="aKg-cK-BvL">
             <objects>
                 <tableViewController id="9a2-qK-Erq" customClass="TableViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -101,16 +101,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="lcD-MN-RHk">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lcD-MN-RHk" id="JdJ-dk-YWt">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="9a2-qK-Erq" id="K3L-ut-4m0"/>
                             <outlet property="delegate" destination="9a2-qK-Erq" id="Iau-9H-lWv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="JFT-o6-p6A"/>
+                    <navigationItem key="navigationItem" title="Table Examples" id="JFT-o6-p6A"/>
+                    <connections>
+                        <segue destination="deU-2g-uLT" kind="show" identifier="playground" id="fSa-Kb-cwl"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oCh-vj-hDZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1775.2" y="-439.43028485757122"/>
+        </scene>
+        <!--Table Playground-->
+        <scene sceneID="f4T-zk-J83">
+            <objects>
+                <tableViewController title="Table Playground" id="deU-2g-uLT" customClass="PlaygroundTableViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="gBA-KS-9Xv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="NGh-6u-ZXS">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NGh-6u-ZXS" id="xoz-oH-IUL">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="deU-2g-uLT" id="WMQ-G4-4Ur"/>
+                            <outlet property="delegate" destination="deU-2g-uLT" id="x78-Bd-I1T"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Playground" id="euw-gG-76d">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="fvN-cM-hFu">
+                            <connections>
+                                <action selector="refreshButtonPressed" destination="deU-2g-uLT" id="hVz-Mk-Vzy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VZC-BN-voH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2562" y="-439"/>
         </scene>
         <!--Table-->
         <scene sceneID="elm-MU-dWi">

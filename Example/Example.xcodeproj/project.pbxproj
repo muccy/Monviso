@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0605CBB41E256100006FC073 /* PlaygroundTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0605CBB31E256100006FC073 /* PlaygroundTableViewController.swift */; };
 		06BFA0551E1E5B1600BA396B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06BFA0531E1E5B1600BA396B /* Main.storyboard */; };
 		06BFA0571E1E5B1600BA396B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06BFA0561E1E5B1600BA396B /* Assets.xcassets */; };
 		06BFA05A1E1E5B1600BA396B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06BFA0581E1E5B1600BA396B /* LaunchScreen.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0605CBB31E256100006FC073 /* PlaygroundTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaygroundTableViewController.swift; sourceTree = "<group>"; };
 		06BFA04A1E1E5B1600BA396B /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06BFA0541E1E5B1600BA396B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		06BFA0561E1E5B1600BA396B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				06BFA0671E1E5C2C00BA396B /* TableViewController.swift */,
+				0605CBB31E256100006FC073 /* PlaygroundTableViewController.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06D508DB1E23D62B004A5B40 /* LabelCollectionCell.swift in Sources */,
+				0605CBB41E256100006FC073 /* PlaygroundTableViewController.swift in Sources */,
 				06D508E01E23D860004A5B40 /* PageViewController.swift in Sources */,
 				06BFA0691E1E5C2C00BA396B /* CollectionViewController.swift in Sources */,
 				06BFA06A1E1E5C2C00BA396B /* TableViewController.swift in Sources */,

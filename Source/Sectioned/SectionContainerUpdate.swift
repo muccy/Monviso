@@ -62,7 +62,7 @@ public struct SectionContainerUpdate: CustomDebugStringConvertible {
     
     public var debugDescription: String {
         func line(_ title: String, _ object: CustomDebugStringConvertible) -> String {
-            return "\n\t\(title): \(object)"
+            return "\n\(title): \(object)"
         }
         
         var string = ""
@@ -269,6 +269,7 @@ public extension UpdatableSectionContainer where
         
         // Calculate diff from old sections to new sections
         let sectionsDiff = Diff(from: oldSections, to: sections)
+        
         let insertedSections = self.insertedSections(from: sectionsDiff)
         let deletedSections = self.deletedSections(from: sectionsDiff)
         let sectionMovements = self.sectionMovements(from: sectionsDiff)
@@ -333,7 +334,7 @@ public extension UpdatableSectionContainer where
             deleted.formUnion(deletedItems(from: diff, at: sectionChange.from))
             movements.formUnion(itemMovements(from: diff, sectionChange.from, to: sectionChange.to))
             reloaded.formUnion(Set(diff.matches.flatMap { match in
-                guard match.changed else { return nil }
+                guard match.changed == true else { return nil }
                 
                 let sourceItem = sourceSection.items[match.from]
                 let destinationItem = destinationSection.items[match.to]
@@ -497,7 +498,7 @@ public extension UITableView {
         
         if let exception = exception {
             // Build a more explainatory failure reason
-            fatalError("Table view batch update failed: \(exception.name), \(exception.reason). Update = \(update)")
+            fatalError("Table view batch update failed: \(exception.name.rawValue), \(exception.reason != nil ? exception.reason! : "no reason"). Update = \n\(update)")
         }
     }
 }
@@ -551,7 +552,7 @@ public extension UICollectionView {
         
         if let exception = exception {
             // Build a more explainatory failure reason
-            fatalError("Collection view batch update failed: \(exception.name), \(exception.reason). Update = \(update)")
+            fatalError("Collection view batch update failed: \(exception.name.rawValue), \(exception.reason != nil ? exception.reason! : "no reason"). Update = \n\(update)")
         }
     }
 }
