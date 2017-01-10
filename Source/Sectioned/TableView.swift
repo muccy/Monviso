@@ -43,11 +43,23 @@ public struct TableViewSectionIndexItem {
 }
 
 /// Content of table
-public struct TableViewContent<Item, Header, Footer>: MutableSectionContainer
+public struct TableViewContent<Item, Header, Footer>: UpdatableSectionContainer, SectionContainerUpdateBuilder
 {
     public typealias Element = TableViewSection<Item, Header, Footer>
-    public var sections = [Element]()
+    public typealias Sections = [Element]
+    public typealias Items = Sections.Iterator.Element.Items
+    public typealias SectionsDiff = Diff<Sections>
+    public typealias ItemsDiff = Diff<Items>
+    
+    public var sections = Sections()
     public var sectionIndexItems: [TableViewSectionIndexItem]? = nil
+    
+    public func shouldReload(from sourceSection: Element, to destinationSection: Element) -> Bool
+    {
+        let sameHeader = equalityWithMatch(between: sourceSection.header, and: destinationSection.header)
+        let sameFooter = equalityWithMatch(between: sourceSection.footer, and: destinationSection.footer)
+        return sameHeader == false || sameFooter == false
+    }
 }
 
 /// Data source of a table view

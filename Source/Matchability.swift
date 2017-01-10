@@ -85,14 +85,18 @@ extension Dictionary: Matchable {
     }
 }
 
-func equalityWithMatch(between a: Any?, and b: Any?) -> Bool {
+func match(between a: Any?, and b: Any?) -> Match {
     if a == nil && b == nil {
-        return true
+        return .equal
     }
     
     guard let object = a as? Matchable, b != nil else {
-        return false
+        return .none
     }
+    
+    return object.match(with: b!)
+}
 
-    return object.match(with: b!) == .equal
+func equalityWithMatch(between a: Any?, and b: Any?) -> Bool {
+    return match(between: a, and: b) == .equal
 }

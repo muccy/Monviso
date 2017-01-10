@@ -27,10 +27,21 @@ public struct CollectionViewSection<Item>: MutableSection, Identifiable, Matchab
 }
 
 /// Content of collection
-public struct CollectionViewContent<Item>: MutableSectionContainer
+public struct CollectionViewContent<Item>: UpdatableSectionContainer, SectionContainerUpdateBuilder
 {
     public typealias Element = CollectionViewSection<Item>
-    public var sections = [Element]()
+    public typealias Sections = [Element]
+    public typealias Items = Sections.Iterator.Element.Items
+    public typealias SectionsDiff = Diff<Sections>
+    public typealias ItemsDiff = Diff<Items>
+
+    public var sections = Sections()
+    
+    public func shouldReload(from sourceSection: Element, to destinationSection: Element) -> Bool
+    {
+        let sameUserInfo = equalityWithMatch(between: sourceSection.userInfo, and: destinationSection.userInfo)
+        return sameUserInfo == false
+    }
 }
 
 /// Data source of collection view

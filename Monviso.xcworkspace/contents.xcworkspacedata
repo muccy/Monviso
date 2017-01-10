@@ -34,9 +34,15 @@
          <FileRef
             location = "group:UserInteraction.swift">
          </FileRef>
+         <FileRef
+            location = "group:SectionContainerUpdate.swift">
+         </FileRef>
       </Group>
       <FileRef
          location = "group:PageViewController.swift">
+      </FileRef>
+      <FileRef
+         location = "group:ExceptionCatcher.h">
       </FileRef>
    </Group>
    <FileRef

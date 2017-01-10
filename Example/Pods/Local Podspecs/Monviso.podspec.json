@@ -17,7 +17,7 @@
   },
   "source_files": [
     "Source",
-    "Source/**/*.swift"
+    "Source/**/*.{swift,h,m}"
   ],
   "dependencies": {
     "Ferrara": [

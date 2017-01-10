@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "ExceptionCatcher.h"
 
 FOUNDATION_EXPORT double MonvisoVersionNumber;
 FOUNDATION_EXPORT const unsigned char MonvisoVersionString[];
