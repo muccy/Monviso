@@ -119,6 +119,7 @@
                     <navigationItem key="navigationItem" title="Table Examples" id="JFT-o6-p6A"/>
                     <connections>
                         <segue destination="deU-2g-uLT" kind="show" identifier="playground" id="fSa-Kb-cwl"/>
+                        <segue destination="GBC-yI-dPt" kind="show" identifier="transition" id="YRQ-dw-nmn"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oCh-vj-hDZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -160,7 +161,42 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZC-BN-voH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2562" y="-439"/>
+            <point key="canvasLocation" x="2607" y="-846"/>
+        </scene>
+        <!--Transition Example-->
+        <scene sceneID="cRm-FS-xPs">
+            <objects>
+                <tableViewController id="GBC-yI-dPt" customClass="TransitionExampleTableViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="84Z-kq-0ef">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" id="VQ1-S4-MR9">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VQ1-S4-MR9" id="3HF-aV-Tes">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="GBC-yI-dPt" id="tZG-nR-XKV"/>
+                            <outlet property="delegate" destination="GBC-yI-dPt" id="BOS-wm-baL"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Transition Example" id="11a-53-7DX">
+                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="ZBC-N6-YZ8">
+                            <connections>
+                                <action selector="performTransition" destination="GBC-yI-dPt" id="1Kf-AS-z6C"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QCu-jb-Zxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2606" y="-192"/>
         </scene>
         <!--Table-->
         <scene sceneID="elm-MU-dWi">

@@ -12,6 +12,7 @@ import Monviso
 class TableViewController: UITableViewController {
     enum Example {
         case playground
+        case transition(TransitionExample<[TableViewDataSource.Section]>)
     }
     
     private let dataSource = TableViewDataSource()
@@ -26,6 +27,8 @@ class TableViewController: UITableViewController {
                 switch example {
                 case .playground:
                     cell.textLabel!.text = "Playground"
+                case .transition(let transition):
+                    cell.textLabel!.text = transition.name
                 }
                 
                 return cell
@@ -36,11 +39,42 @@ class TableViewController: UITableViewController {
         }
         
         tableView.dataSource = dataSource
-        dataSource.content.sections = [
-            TableViewDataSource.Section(items: [ Example.playground ]),
-            TableViewDataSource.Section(items: [], header: "Section"),
-            TableViewDataSource.Section(items: [], header: "Row")
-        ]
+        dataSource.content.sections = originalSections()
+    }
+    
+    private func originalSections() -> TableViewDataSource.Content.Sections {
+        let playground = TableViewDataSource.Section(items: [ Example.playground ])
+ 
+        let sectionExamples = TransitionExample.defaultSectionExamples { TableViewDataSource.Section(identifier: $0,  items: [""], header: "Section: \($1)") }
+        let section = TableViewDataSource.Section(items: sectionExamples.map { Example.transition($0) }, header: "Section")
+        
+        let row = TableViewDataSource.Section(items: [], header: "Row")
+        
+        return [playground, section, row]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        switch segue.identifier {
+        case .some("transition"):
+            if let cell = sender as? UITableViewCell,
+                let indexPath = tableView.indexPath(for: cell),
+                let item = try? dataSource.content.item(at: indexPath),
+                let example = item as? Example,
+                let viewController = segue.destination as? TransitionExampleTableViewController
+            {
+                switch example {
+                case .transition(let transition):
+                    viewController.transitionExample = transition
+                default:
+                    break
+                }
+            }
+            
+        default:
+            break
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -50,6 +84,9 @@ class TableViewController: UITableViewController {
             switch example {
             case .playground:
                 performSegue(withIdentifier: "playground", sender: nil)
+            case .transition:
+                let cell = tableView.cellForRow(at: indexPath)
+                performSegue(withIdentifier: "transition", sender: cell)
             }
         }
     }
