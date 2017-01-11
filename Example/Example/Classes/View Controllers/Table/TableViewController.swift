@@ -40,15 +40,22 @@ class TableViewController: UITableViewController {
         
         tableView.dataSource = dataSource
         dataSource.content.sections = originalSections()
+        
+//        dataSource.content.sectionIndexItems = [
+//            TableViewSectionIndexItem(title: "Section", sectionIdentifier: "section"),
+//            TableViewSectionIndexItem(title: "•", sectionIdentifier: "section"),
+//            TableViewSectionIndexItem(title: "Row", sectionIdentifier: "row")
+//        ]
     }
     
     private func originalSections() -> TableViewDataSource.Content.Sections {
         let playground = TableViewDataSource.Section(items: [ Example.playground ])
  
         let sectionExamples = TransitionExample.defaultSectionExamples { TableViewDataSource.Section(identifier: $0,  items: [""], header: "Section: \($1)") }
-        let section = TableViewDataSource.Section(items: sectionExamples.map { Example.transition($0) }, header: "Section")
+        let section = TableViewDataSource.Section(identifier: "section", items: sectionExamples.map { Example.transition($0) }, header: "Section")
         
-        let row = TableViewDataSource.Section(items: [], header: "Row")
+        let rowExamples = TransitionExample.defaultRowExamples { TableViewDataSource.Section(identifier: $0,  items: $2, header: "Section: \($1)") }
+        let row = TableViewDataSource.Section(identifier: "row", items: rowExamples.map { Example.transition($0) }, header: "Row")
         
         return [playground, section, row]
     }
