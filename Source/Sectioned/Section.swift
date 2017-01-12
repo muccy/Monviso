@@ -79,7 +79,7 @@ public extension SectionContainer where Element: Section, Sections.Iterator.Elem
     ///
     /// - Parameter test: Closure which perform test of sections
     /// - Returns: Section index if found
-    public func indexOfSection(passing test: (Sections.Index, Element) -> (passed: Bool, stop: Bool)) -> Sections.Index?
+    public func indexOfSection(where test: (Sections.Index, Element) -> (passed: Bool, stop: Bool)) -> Sections.Index?
     {
         for (index, section) in sections.enumerated() {
             let result = test(index, section)
@@ -103,7 +103,7 @@ public extension SectionContainer where Element: Section & Identifiable, Section
     /// - Returns: Section index if found
     public func indexOfSection(with identifier: Element.Identifier) -> Sections.Index?
     {
-        return indexOfSection(passing: { _, section in
+        return indexOfSection(where: { _, section in
             if identifier == section.identifier {
                 return (passed: true, stop: true)
             }
@@ -138,6 +138,55 @@ public extension SectionContainer where
     {
         let firstLevelElement = try self.element(at: indexPath.section)
         return try firstLevelElement.element(at: indexPath.item)
+    }
+}
+
+public extension SectionContainer where
+    Sections.Index == IndexPath.Index, Sections.IndexDistance == IndexPath.Index,
+    Element: Section, SubElement == Element.Items.Iterator.Element,
+    Sections.Iterator.Element == Element, Element.Items.Iterator.Element == SubElement
+{
+    /// Find item index path with a closure
+    ///
+    /// - Parameter test: Closure which perform test of items
+    /// - Returns: Item index path if found
+    public func indexPathOfItem(where test: (IndexPath, SubElement) -> (passed: Bool, stop: Bool)) -> IndexPath?
+    {
+        for (sectionIndex, section) in sections.enumerated() {
+            for (itemIndex, item) in section.items.enumerated() {
+                let indexPath = IndexPath(item: itemIndex, section: sectionIndex)
+                let result = test(indexPath, item)
+                
+                if result.passed == true, result.stop == true {
+                    return indexPath
+                }
+                else if result.stop == true {
+                    return nil
+                }
+            } // for
+        } // for
+        
+        return nil
+    }
+    
+    /// Find item index path
+    ///
+    /// - Parameters:
+    ///   - itemToFind: Item to be searched
+    ///   - evenIfChanged: If true, find is accomplished including changes, not only complete matches
+    /// - Returns: Item index path if found
+    public func indexPathOfItem(_ itemToFind: SubElement, evenIfChanged: Bool = true) -> IndexPath?
+    {
+        return indexPathOfItem(where: { indexPath, item in
+            switch match(between: itemToFind, and: item) {
+            case .equal:
+                return (passed: true, stop: true)
+            case .change:
+                return (passed: evenIfChanged, stop: evenIfChanged)
+            case .none:
+                return (passed: false, stop: false)
+            } // switch
+        })
     }
 }
 
