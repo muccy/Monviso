@@ -11,13 +11,18 @@
 		0605CBB71E262BD8006FC073 /* TransitionExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0605CBB61E262BD8006FC073 /* TransitionExample.swift */; };
 		0605CBB91E263C79006FC073 /* TransitionExampleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0605CBB81E263C79006FC073 /* TransitionExampleTableViewController.swift */; };
 		0605CBBB1E264054006FC073 /* MarkedBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0605CBBA1E264054006FC073 /* MarkedBase.swift */; };
+		0605CBBF1E26D7C4006FC073 /* LabelCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0605CBBE1E26D7C4006FC073 /* LabelCollectionCell.swift */; };
+		0605CBC11E26D7E8006FC073 /* LabelCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0605CBC01E26D7E8006FC073 /* LabelCollectionReusableView.swift */; };
+		0605CBC31E26E600006FC073 /* CollectionGridLayouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0605CBC21E26E600006FC073 /* CollectionGridLayouter.swift */; };
+		0605CBC51E277FF4006FC073 /* PlaygroundCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0605CBC41E277FF4006FC073 /* PlaygroundCollectionViewController.swift */; };
+		0605CBC71E278044006FC073 /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0605CBC61E278044006FC073 /* Playground.swift */; };
+		0605CBC91E27809E006FC073 /* Matchability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0605CBC81E27809E006FC073 /* Matchability.swift */; };
 		06BFA0551E1E5B1600BA396B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06BFA0531E1E5B1600BA396B /* Main.storyboard */; };
 		06BFA0571E1E5B1600BA396B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06BFA0561E1E5B1600BA396B /* Assets.xcassets */; };
 		06BFA05A1E1E5B1600BA396B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06BFA0581E1E5B1600BA396B /* LaunchScreen.storyboard */; };
 		06BFA0681E1E5C2C00BA396B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BFA0621E1E5C2C00BA396B /* AppDelegate.swift */; };
 		06BFA0691E1E5C2C00BA396B /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BFA0651E1E5C2C00BA396B /* CollectionViewController.swift */; };
 		06BFA06A1E1E5C2C00BA396B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BFA0671E1E5C2C00BA396B /* TableViewController.swift */; };
-		06D508DB1E23D62B004A5B40 /* LabelCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D508DA1E23D62B004A5B40 /* LabelCollectionCell.swift */; };
 		06D508E01E23D860004A5B40 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D508DF1E23D860004A5B40 /* PageViewController.swift */; };
 		06D508E21E23D9B0004A5B40 /* LabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D508E11E23D9B0004A5B40 /* LabelViewController.swift */; };
 		FC1A7B14A390443E5BF0D577 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDAC77CA63D0AD3C9A360C6A /* Pods_Example.framework */; };
@@ -28,6 +33,12 @@
 		0605CBB61E262BD8006FC073 /* TransitionExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionExample.swift; sourceTree = "<group>"; };
 		0605CBB81E263C79006FC073 /* TransitionExampleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionExampleTableViewController.swift; sourceTree = "<group>"; };
 		0605CBBA1E264054006FC073 /* MarkedBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkedBase.swift; sourceTree = "<group>"; };
+		0605CBBE1E26D7C4006FC073 /* LabelCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCollectionCell.swift; sourceTree = "<group>"; };
+		0605CBC01E26D7E8006FC073 /* LabelCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCollectionReusableView.swift; sourceTree = "<group>"; };
+		0605CBC21E26E600006FC073 /* CollectionGridLayouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionGridLayouter.swift; sourceTree = "<group>"; };
+		0605CBC41E277FF4006FC073 /* PlaygroundCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaygroundCollectionViewController.swift; sourceTree = "<group>"; };
+		0605CBC61E278044006FC073 /* Playground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
+		0605CBC81E27809E006FC073 /* Matchability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matchability.swift; sourceTree = "<group>"; };
 		06BFA04A1E1E5B1600BA396B /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06BFA0541E1E5B1600BA396B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		06BFA0561E1E5B1600BA396B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -36,7 +47,6 @@
 		06BFA0621E1E5C2C00BA396B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06BFA0651E1E5C2C00BA396B /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		06BFA0671E1E5C2C00BA396B /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		06D508DA1E23D62B004A5B40 /* LabelCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCollectionCell.swift; sourceTree = "<group>"; };
 		06D508DF1E23D860004A5B40 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		06D508E11E23D9B0004A5B40 /* LabelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelViewController.swift; sourceTree = "<group>"; };
 		5BBB282982D7F6897950FB43 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -61,8 +71,26 @@
 			children = (
 				0605CBB61E262BD8006FC073 /* TransitionExample.swift */,
 				0605CBBA1E264054006FC073 /* MarkedBase.swift */,
+				0605CBC61E278044006FC073 /* Playground.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		0605CBBC1E26D7C4006FC073 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0605CBBD1E26D7C4006FC073 /* Cells */,
+				0605CBC01E26D7E8006FC073 /* LabelCollectionReusableView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0605CBBD1E26D7C4006FC073 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0605CBBE1E26D7C4006FC073 /* LabelCollectionCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		06BFA0411E1E5B1600BA396B = {
@@ -99,7 +127,9 @@
 			isa = PBXGroup;
 			children = (
 				06BFA0621E1E5C2C00BA396B /* AppDelegate.swift */,
+				0605CBC81E27809E006FC073 /* Matchability.swift */,
 				0605CBB51E262BBA006FC073 /* Models */,
+				0605CBBC1E26D7C4006FC073 /* Views */,
 				06BFA0631E1E5C2C00BA396B /* View Controllers */,
 			);
 			path = Classes;
@@ -119,7 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				06BFA0651E1E5C2C00BA396B /* CollectionViewController.swift */,
-				06D508DA1E23D62B004A5B40 /* LabelCollectionCell.swift */,
+				0605CBC21E26E600006FC073 /* CollectionGridLayouter.swift */,
+				0605CBC41E277FF4006FC073 /* PlaygroundCollectionViewController.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -283,15 +314,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06D508DB1E23D62B004A5B40 /* LabelCollectionCell.swift in Sources */,
 				0605CBB91E263C79006FC073 /* TransitionExampleTableViewController.swift in Sources */,
 				0605CBBB1E264054006FC073 /* MarkedBase.swift in Sources */,
+				0605CBC91E27809E006FC073 /* Matchability.swift in Sources */,
+				0605CBBF1E26D7C4006FC073 /* LabelCollectionCell.swift in Sources */,
+				0605CBC51E277FF4006FC073 /* PlaygroundCollectionViewController.swift in Sources */,
+				0605CBC71E278044006FC073 /* Playground.swift in Sources */,
 				0605CBB71E262BD8006FC073 /* TransitionExample.swift in Sources */,
 				0605CBB41E256100006FC073 /* PlaygroundTableViewController.swift in Sources */,
+				0605CBC11E26D7E8006FC073 /* LabelCollectionReusableView.swift in Sources */,
 				06D508E01E23D860004A5B40 /* PageViewController.swift in Sources */,
 				06BFA0691E1E5C2C00BA396B /* CollectionViewController.swift in Sources */,
 				06BFA06A1E1E5C2C00BA396B /* TableViewController.swift in Sources */,
 				06BFA0681E1E5C2C00BA396B /* AppDelegate.swift in Sources */,
+				0605CBC31E26E600006FC073 /* CollectionGridLayouter.swift in Sources */,
 				06D508E21E23D9B0004A5B40 /* LabelViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

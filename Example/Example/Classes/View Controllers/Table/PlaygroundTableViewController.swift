@@ -10,17 +10,7 @@ import UIKit
 import Monviso
 import Ferrara
 
-extension String: Matchable {}
-
 class PlaygroundTableViewController: UITableViewController {
-    enum Command: String, Matchable, Equatable {
-        case addRow = "Add Row"
-        
-        static func ==(lhs: Command, rhs: Command) -> Bool {
-            return lhs.rawValue == rhs.rawValue
-        }
-    }
-    
     private let dataSource = TableViewDataSource()
     
     override func viewDidLoad() {
@@ -29,7 +19,7 @@ class PlaygroundTableViewController: UITableViewController {
         dataSource.cellFactory.creator = { item, indexPath, tableView in
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             
-            if let command = item as? Command {
+            if let command = item as? Playground.Command {
                 cell.textLabel!.text = command.rawValue
                 cell.selectionStyle = .default
             }
@@ -43,12 +33,12 @@ class PlaygroundTableViewController: UITableViewController {
         
         dataSource.editHandler.attemptTest = { attempt in
             let item = try? attempt.content.item(at: attempt.at)
-            return (item is Command) == false
+            return (item is Playground.Command) == false
         }
         
         dataSource.moveHandler.attemptTest = { attempt in
             let item = try? attempt.content.item(at: attempt.from)
-            return (item is Command) == false
+            return (item is Playground.Command) == false
         }
         
         tableView.dataSource = dataSource
@@ -58,12 +48,7 @@ class PlaygroundTableViewController: UITableViewController {
     }
     
     private func originalSections() -> TableViewDataSource.Content.Sections {
-        return [
-            TableViewDataSource.Section(identifier: "commands", items: [ Command.addRow ]),
-            TableViewDataSource.Section(identifier: "a", items: ["a", "b", "c"], header: "A"),
-            TableViewDataSource.Section(identifier: "b", items: ["d", "e", "f"], header: "B"),
-            TableViewDataSource.Section(identifier: "c", items: ["g", "h", "i"], header: "C")
-        ]
+        return Playground.defaultSections { TableViewDataSource.Section(identifier: $0, items: $2, header: $1) }
     }
     
     @IBAction func refreshButtonPressed() {
@@ -77,7 +62,7 @@ class PlaygroundTableViewController: UITableViewController {
     {
         let item = try? dataSource.content.item(at: indexPath)
         
-        if let command = item as? Command {
+        if let command = item as? Playground.Command {
             switch command {
             case .addRow:
                 let maxSectionIndex = dataSource.content.sections.count - 2

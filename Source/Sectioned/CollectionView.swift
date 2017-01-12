@@ -52,15 +52,15 @@ final public class CollectionViewDataSource: NSObject, DataSource, UICollectionV
     public typealias Item = Content.SubElement
     
     public typealias CellFactory = ItemUIFactory<Item, IndexPath, UICollectionView, UICollectionViewCell>
-    public typealias SupplementaryViewFactory = ItemUIFactory<Item, IndexPath, UICollectionView, UICollectionReusableView>
+    public typealias SupplementaryViewFactory = ItemUIFactory<Section, IndexPath, UICollectionView, UICollectionReusableView>
     public typealias MoveHandler = UserInteractionHandler<MoveAttempt<IndexPath, Content>, MoveCommit<IndexPath, Content>>
 
     /// Content of collection view data source
     public var content = Content()
     /// Factory which produces cells
     public var cellFactory = CellFactory() { item, _, _ in throw AccessError.noUI(item: item) }
-    /// Factory which produces supplementary UICollectionViewDataSource
-    public var supplementaryViewFactory = SupplementaryViewFactory() { item, _, _ in throw AccessError.noUI(item: item) }
+    /// Factory which produces supplementary views
+    public var supplementaryViewFactory = SupplementaryViewFactory() { section, _, _ in throw AccessError.noUI(item: section) }
     
     /// Handler of move interactions. Default handler is disabled but is able to move items through sections
     public var moveHandler = MoveHandler({ _ in return false }) { _ in }
@@ -98,8 +98,8 @@ final public class CollectionViewDataSource: NSObject, DataSource, UICollectionV
     public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
     {
         do {
-            let item = try content.item(at: indexPath)
-            return try supplementaryViewFactory.UIElement(for: item, at: indexPath, for: collectionView)
+            let section = try content.section(at: indexPath.section)
+            return try supplementaryViewFactory.UIElement(for: section, at: indexPath, for: collectionView)
         }
         catch let error {
             fatalError("Data source can not create a supplementary view at index path \(indexPath): \(error)")

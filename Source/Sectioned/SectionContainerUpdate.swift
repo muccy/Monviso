@@ -513,7 +513,7 @@ public extension UICollectionView {
     /// - Parameters:
     ///   - update: Update to apply
     ///   - completion: Optional closure called at completion
-    public func apply(update: SectionContainerUpdate, completion: ((Bool) -> Void)?)
+    public func apply(update: SectionContainerUpdate, completion: ((Bool) -> Void)? = nil)
     {
         guard update.empty == false else {
             if let completion = completion { completion(true) }
