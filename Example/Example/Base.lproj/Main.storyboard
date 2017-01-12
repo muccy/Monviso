@@ -190,11 +190,27 @@
             </objects>
             <point key="canvasLocation" x="2607" y="468"/>
         </scene>
-        <!--Page View Controller-->
+        <!--Pages-->
         <scene sceneID="4Su-bj-FCU">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="qga-WS-hei" customClass="PageViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Syx-Rx-kSr"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="qga-WS-hei" customClass="PageViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <navigationItem key="navigationItem" title="Pages" id="UKs-UA-TFf">
+                        <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="nvQ-u1-CiN">
+                            <connections>
+                                <action selector="previousButtonPressed" destination="qga-WS-hei" id="hVJ-1H-y8a"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="fastForward" id="mh9-oq-5pH">
+                            <connections>
+                                <action selector="nextButtonPressed" destination="qga-WS-hei" id="EIc-Fh-eiS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="backBarButtonItem" destination="nvQ-u1-CiN" id="mbH-UJ-MMM"/>
+                        <outlet property="nextBarButtonItem" destination="mh9-oq-5pH" id="7VE-0K-T1z"/>
+                    </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37B-yk-6Bl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

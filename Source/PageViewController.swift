@@ -83,7 +83,40 @@ public extension PageViewControllerDataSource {
         return indexes
     }
     
+    /// Get indexes for view controllers displayed in page view controller
+    ///
+    /// - Parameter pageViewController: Page view controller which displays pages
+    /// - Returns: Indexes of items represented by view controllers displayed in pageViewController
+    /// - Throws: When indexes could not be found
+    public func indexesOfContent(displayedIn pageViewController: UIPageViewController) throws -> IndexSet
+    {
+        guard let viewControllers = pageViewController.viewControllers, viewControllers.count > 0 else {
+            return IndexSet()
+        }
+        
+        return try indexesOfContent(boundTo: viewControllers, in: content)
+    }
+    
     public typealias Update = (viewControllers: [UIViewController], direction: UIPageViewControllerNavigationDirection)
+    
+    /// Calculate view controllers and direction to be applied to page view controller
+    ///
+    /// - Parameters:
+    ///   - range: Content pages to be shown
+    ///   - currentViewControllers: Current displayed view controllers in page view controller
+    /// - Returns: A tuple which contains new view controllers and proposed transition direction
+    /// - Throws: When something goes wrong :)
+    public func update(toShowPages range: CountableClosedRange<Content.Index>, in pageViewController: UIPageViewController) throws -> Update
+    {
+        // Create new view controller for page in new content
+        let viewControllers = try self.viewControllers(for: self.content, clampedTo: range, in: pageViewController)
+        
+        // Get best direction for transition
+        let direction = try self.direction(from: pageViewController.viewControllers, to: range)
+        
+        // Pack and return
+        return (viewControllers: viewControllers, direction: direction)
+    }
     
     /// Set content and calculate view controllers and direction to be applied to page view controller
     ///
@@ -93,23 +126,14 @@ public extension PageViewControllerDataSource {
     ///   - currentViewControllers: Current displayed view controllers in page view controller
     /// - Returns: A tuple which contains new view controllers and proposed transition direction
     /// - Throws: When something goes wrong :)
-    public func update(content: Content, toShowPages range: CountableRange<Content.Index>, in pageViewController: UIPageViewController) throws -> Update
+    public func update(content: Content, toShowPages range: CountableClosedRange<Content.Index>, in pageViewController: UIPageViewController) throws -> Update
     {
         // Set new content
-        let oldContent = self.content
         self.content = content
-        
-        // Create new view controller for page in new content
-        let viewControllers = try self.viewControllers(for: content, clampedTo: range, in: pageViewController)
-        
-        // Get best direction for transition
-        let direction = try self.direction(from: pageViewController.viewControllers, for: oldContent, to: content)
-        
-        // Pack and return
-        return (viewControllers: viewControllers, direction: direction)
+        return try update(toShowPages: range, in: pageViewController)
     }
     
-    private func viewControllers(for content: Content, clampedTo range: CountableRange<Content.Index>, in pageViewController: UIPageViewController) throws -> [UIViewController]
+    private func viewControllers(for content: Content, clampedTo range: CountableClosedRange<Content.Index>, in pageViewController: UIPageViewController) throws -> [UIViewController]
     {
         guard range.lowerBound >= 0 else {
             throw AccessError.outOfBounds(index: range.lowerBound, validRange: 0..<content.count)
@@ -126,14 +150,17 @@ public extension PageViewControllerDataSource {
         }
     }
     
-    private func direction(from viewControllers: [UIViewController]?, for oldContent: Content, to newContent: Content) throws -> UIPageViewControllerNavigationDirection
+    private func direction(from viewControllers: [UIViewController]?, to range: CountableClosedRange<Content.Index>) throws -> UIPageViewControllerNavigationDirection
     {
-        if let firstViewController = viewControllers?.first {
-            let firstViewControllerIndex = try indexOfContent(boundTo: firstViewController, in: oldContent)
-            let lastNewIndex = newContent.count - 1
-            
-            if lastNewIndex < firstViewControllerIndex {
-                return .reverse
+        if let viewControllers = viewControllers,
+            let indexes = try? indexesOfContent(boundTo: viewControllers, in: content),
+            let firstIndex = indexes.first
+        {
+            if (range.lowerBound >= firstIndex) {
+                return .forward
+            }
+            else {
+                return.reverse
             }
         }
         
