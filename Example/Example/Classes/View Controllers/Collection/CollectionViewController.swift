@@ -60,6 +60,30 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         return [playground, section, row]
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        switch segue.identifier {
+        case .some("transition"):
+            if let cell = sender as? UICollectionViewCell,
+                let indexPath = collectionView!.indexPath(for: cell),
+                let item = try? dataSource.content.item(at: indexPath),
+                let example = item as? Example,
+                let viewController = segue.destination as? TransitionExampleCollectionViewController
+            {
+                switch example {
+                case .transition(let transition):
+                    viewController.transitionExample = transition
+                default:
+                    break
+                }
+            }
+            
+        default:
+            break
+        }
+    }
+    
     // MARK: - UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)

@@ -32,10 +32,6 @@ class PlaygroundCollectionViewController: UICollectionViewController, UICollecti
             }
         }
         
-        dataSource.supplementaryViewFactory.creator = { section, indexPath, collectionView in
-            return self.gridLayouter.headerView(for: collectionView, at: indexPath, title: section.userInfo["name"] as? String)
-        }
-        
         dataSource.moveHandler.attemptTest = { attempt in
             let item = try? attempt.content.item(at: attempt.from)
             return (item is Playground.Command) == false
@@ -52,6 +48,10 @@ class PlaygroundCollectionViewController: UICollectionViewController, UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dataSource.supplementaryViewFactory.creator = { [unowned self] section, indexPath, collectionView in
+            return self.gridLayouter.headerView(for: collectionView, at: indexPath, title: section.userInfo["name"] as? String)
+        }
         
         collectionView!.dataSource = dataSource
         dataSource.content.sections = originalSections()
