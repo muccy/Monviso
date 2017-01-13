@@ -101,7 +101,7 @@ public extension SectionContainer where Element: Section & Identifiable, Section
     ///
     /// - Parameter identifier: Section identifier to use to find section
     /// - Returns: Section index if found
-    public func indexOfSection(with identifier: Element.Identifier) -> Sections.Index?
+    public func indexOfSection(withIdentifier identifier: Element.Identifier) -> Sections.Index?
     {
         return indexOfSection(where: { _, section in
             if identifier == section.identifier {
@@ -168,17 +168,17 @@ public extension SectionContainer where
         
         return nil
     }
-    
+
     /// Find item index path
     ///
     /// - Parameters:
     ///   - itemToFind: Item to be searched
     ///   - evenIfChanged: If true, find is accomplished including changes, not only complete matches
     /// - Returns: Item index path if found
-    public func indexPathOfItem(_ itemToFind: SubElement, evenIfChanged: Bool = true) -> IndexPath?
+    public func indexPathOfItem<I: Matchable>(_ itemToFind: I, evenIfChanged: Bool = true) -> IndexPath?
     {
         return indexPathOfItem(where: { indexPath, item in
-            switch match(between: itemToFind, and: item) {
+            switch itemToFind.match(with: item) {
             case .equal:
                 return (passed: true, stop: true)
             case .change:

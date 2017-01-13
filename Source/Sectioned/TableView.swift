@@ -185,7 +185,7 @@ final public class TableViewDataSource: NSObject, DataSource, UITableViewDataSou
                 return 0
             }
             
-            return content.indexOfSection(with: indexItem.sectionIdentifier) ?? 0
+            return content.indexOfSection(withIdentifier: indexItem.sectionIdentifier) ?? 0
         }
         catch let error {
             fatalError("Data source can not find section bound to index item with title \"\(title)\" at index \(index): \(error)")
