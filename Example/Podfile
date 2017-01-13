@@ -1,0 +1,5 @@
+target 'Example' do
+  workspace '../Monviso.xcworkspace'
+  use_frameworks!
+  pod 'Monviso', :path => '..'
+end

@@ -1,0 +1,6 @@
+framework module Monviso {
+  umbrella header "Monviso-umbrella.h"
+
+  export *
+  module * { export * }
+}

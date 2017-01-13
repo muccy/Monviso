@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:Source"
+      name = "Source">
+      <FileRef
+         location = "group:AccessError.swift">
+      </FileRef>
+      <FileRef
+         location = "group:DataSource.swift">
+      </FileRef>
+      <FileRef
+         location = "group:ItemUIProviding.swift">
+      </FileRef>
+      <FileRef
+         location = "group:SafeAccess.swift">
+      </FileRef>
+      <FileRef
+         location = "group:Matchability.swift">
+      </FileRef>
+      <Group
+         location = "group:Sectioned"
+         name = "Sectioned">
+         <FileRef
+            location = "group:/Users/muccy/Developer/Cocoa/Git/MUKit/GitHub/Monviso/Source/Sectioned/CollectionView.swift">
+         </FileRef>
+         <FileRef
+            location = "group:Section.swift">
+         </FileRef>
+         <FileRef
+            location = "group:/Users/muccy/Developer/Cocoa/Git/MUKit/GitHub/Monviso/Source/Sectioned/TableView.swift">
+         </FileRef>
+         <FileRef
+            location = "group:UserInteraction.swift">
+         </FileRef>
+         <FileRef
+            location = "group:SectionContainerUpdate.swift">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:PageViewController.swift">
+      </FileRef>
+      <FileRef
+         location = "group:ExceptionCatcher.h">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:Example/Example.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Tests/Tests.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Example/Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Tests/Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>

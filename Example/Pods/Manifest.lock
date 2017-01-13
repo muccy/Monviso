@@ -1,0 +1,19 @@
+PODS:
+  - Ferrara (1.1.4)
+  - Monviso (1.0.0):
+    - Ferrara (~> 1.1)
+
+DEPENDENCIES:
+  - Monviso (from `..`)
+
+EXTERNAL SOURCES:
+  Monviso:
+    :path: ".."
+
+SPEC CHECKSUMS:
+  Ferrara: f8414b8966c3f0cb36dbc35caeed11d3f69b1468
+  Monviso: 88000de3825ecfb36ebf68bb083639b77ee028a0
+
+PODFILE CHECKSUM: 9415cd1658f34350797f821cfc16e7fb9d7327c6
+
+COCOAPODS: 1.2.0.beta.1
