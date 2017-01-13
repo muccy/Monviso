@@ -1,0 +1,13 @@
+language: objective-c
+osx_image: xcode8.2
+podfile: Tests/Podfile
+script:
+    xctool 
+    -workspace Monviso.xcworkspace
+    -scheme Tests 
+    -sdk iphonesimulator
+    run-tests
+    CODE_SIGN_IDENTITY="" 
+    CODE_SIGNING_REQUIRED=NO
+notifications:
+    email: false

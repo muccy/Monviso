@@ -58,9 +58,9 @@ final public class CollectionViewDataSource: NSObject, DataSource, UICollectionV
     /// Content of collection view data source
     public var content = Content()
     /// Factory which produces cells
-    public var cellFactory = CellFactory() { item, _, _ in throw AccessError.noUI(item: item) }
+    public var cellFactory = CellFactory() { item, _, _ in throw AccessError.noUI(for: item) }
     /// Factory which produces supplementary views
-    public var supplementaryViewFactory = SupplementaryViewFactory() { section, _, _ in throw AccessError.noUI(item: section) }
+    public var supplementaryViewFactory = SupplementaryViewFactory() { section, _, _ in throw AccessError.noUI(for: section) }
     
     /// Handler of move interactions. Default handler is disabled but is able to move items through sections
     public var moveHandler = MoveHandler({ _ in return false }) { _ in }

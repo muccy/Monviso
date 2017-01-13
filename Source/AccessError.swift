@@ -8,7 +8,7 @@ import Foundation
 /// - invalidOutput: Returned output is not valid
 public enum AccessError: Error {
     case outOfBounds(index: Int, validRange: Range<Int>)
-    case noUI(item: Any)
+    case noUI(for: Any)
     case invalidInput(Any)
     case invalidOutput(Any?)
 }
@@ -19,8 +19,8 @@ extension AccessError: CustomStringConvertible {
         switch self {
         case .outOfBounds(let index, let validRange):
             return "\(index) is out of bounds (\(validRange))"
-        case .noUI(let item):
-            return "No UI for item \(item)"
+        case .noUI(let object):
+            return "No UI for object \(object)"
         case .invalidInput(let object):
             return "Invalid input \(object)"
         case .invalidOutput(let object):
