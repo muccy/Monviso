@@ -56,7 +56,7 @@ public struct SectionContainerUpdate: CustomDebugStringConvertible {
     }
     
     /// true if no update has occurred
-    public var empty: Bool {
+    public var isEmpty: Bool {
         return affectsSections == false && affectsItems == false
     }
     
@@ -461,7 +461,7 @@ public extension UITableView {
         itemDeleteAnimation: UITableViewRowAnimation = .automatic,
         itemReloadAnimation: UITableViewRowAnimation = .automatic)
     {
-        guard update.empty == false else { return }
+        guard update.isEmpty == false else { return }
         guard isBatchable(update: update) else {
             reloadData()
             return
@@ -515,7 +515,7 @@ public extension UICollectionView {
     ///   - completion: Optional closure called at completion
     public func apply(update: SectionContainerUpdate, completion: ((Bool) -> Void)? = nil)
     {
-        guard update.empty == false else {
+        guard update.isEmpty == false else {
             if let completion = completion { completion(true) }
             return
         }
