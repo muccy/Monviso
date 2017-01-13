@@ -77,7 +77,7 @@ final public class TableViewDataSource: NSObject, DataSource, UITableViewDataSou
     /// Content of table view data source
     public var content = Content()
     /// Factory which produces cells
-    public var cellFactory = CellFactory() { item, _, _ in throw AccessError.noUI(item: item) }
+    public var cellFactory = CellFactory() { item, _, _ in throw AccessError.noUI(for: item) }
     
     /// Handler of move interactions. Default handler is disabled but is able to move items through sections
     public var moveHandler = MoveHandler({ _ in return false }) { _ in }

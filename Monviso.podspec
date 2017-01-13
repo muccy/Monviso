@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
   A framework which gives data source structure for UITableView, UICollectionView and UIPageViewController.
-  You create a data source, you customize it with closures, you insert contents in provided structure and you set data source of your client object: that's it!
+  You create a data source, you customize it with closures, you insert contents in provided structures and you set data source of your client object: that's it!
   What is more, this framework provides an automated system to apply content updates to UITableView and UICollectionView animating transitions.
                    DESC
 
